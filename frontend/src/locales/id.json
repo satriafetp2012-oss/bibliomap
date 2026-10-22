@@ -1,0 +1,44 @@
+{
+  "app": {
+    "title": "Bibliomap",
+    "tagline": "Analisis bibliometrik dan pemetaan ilmu pengetahuan"
+  },
+  "import": {
+    "heading": "Impor data",
+    "help": "Unggah ekspor Web of Science (plain text), Scopus (CSV), RIS, atau PubMed (format PubMed). Format dideteksi otomatis.",
+    "chooseFile": "Pilih file",
+    "submit": "Pratinjau",
+    "loading": "Memproses file…",
+    "errorGeneric": "Gagal memproses file. Coba lagi.",
+    "summary": "{{count}} rekaman dari {{filename}} (format {{format}})",
+    "warnings": "{{count}} peringatan",
+    "warningRow": "Rekaman ke-{{index}}: {{message}}"
+  },
+  "table": {
+    "title": "Judul",
+    "authors": "Penulis",
+    "year": "Tahun",
+    "source": "Sumber",
+    "type": "Jenis",
+    "doi": "DOI",
+    "citedBy": "Sitasi",
+    "moreAuthors": "dkk.",
+    "showing": "Menampilkan {{shown}} dari {{total}} rekaman"
+  },
+  "format": {
+    "wos": "Web of Science",
+    "scopus": "Scopus",
+    "ris": "RIS",
+    "pubmed": "PubMed"
+  },
+  "docType": {
+    "article": "Artikel",
+    "review": "Review",
+    "conference_paper": "Makalah konferensi",
+    "book": "Buku",
+    "book_chapter": "Bab buku",
+    "editorial": "Editorial",
+    "letter": "Surat",
+    "other": "Lainnya"
+  }
+}

@@ -1,0 +1,59 @@
+FN Clarivate Analytics Web of Science
+VR 1.0
+PT J
+AU Santoso, B
+   Lee, ML
+AF Santoso, Budi
+   Lee, Mei-Ling
+TI Road traffic injury among motorcycle riders in Indonesia: a
+   population-based study
+SO INJURY PREVENTION
+LA English
+DT Article
+DE motorcycle; road traffic injury; helmet use;
+   Indonesia
+ID RISK-FACTORS; HELMET USE; motorcycle
+AB Background Motorcycle crashes are a leading cause of injury.
+   Methods We analysed national survey data.
+C1 [Santoso, Budi] Univ Gadjah Mada, Fac Med, Dept Biostat, Yogyakarta, Indonesia.
+   [Lee, Mei-Ling] Taipei Med Univ, Coll Publ Hlth, Taipei, Taiwan.
+RP Santoso, B (corresponding author), Univ Gadjah Mada, Yogyakarta, Indonesia.
+OI Santoso, Budi/0000-0002-1825-0097
+CR Peden M, 2004, WORLD REPORT ROAD TR
+   World Health Organization, 2018, GLOBAL STATUS REPORT
+NR 2
+TC 12
+Z9 14
+PU BMJ PUBLISHING GROUP
+SN 1353-8047
+EI 1475-5785
+PY 2021
+VL 27
+IS 3
+BP 245
+EP 252
+DI https://doi.org/10.5555/IP-2020-0001
+PM 33000001
+UT WOS:000600000000001
+ER
+
+PT B
+AU Rahman, A
+TI Helmet law enforcement and fatality trends
+SO PROCEEDINGS OF THE ASIAN CONFERENCE ON SAFETY
+LA English
+DT Proceedings Paper
+C1 Univ Indonesia, Depok, Indonesia.
+PY 2019
+TC 0
+UT WOS:000500000000002
+ER
+
+PT J
+AU Nobody, X
+SO MISSING TITLE JOURNAL
+PY 2020
+UT WOS:000500000000003
+ER
+
+EF
