@@ -17,6 +17,8 @@ import type {
   Statistics,
 } from "./types";
 
+
+
 export class ApiError extends Error {}
 
 async function readError(response: Response): Promise<ApiError> {
@@ -114,4 +116,39 @@ export const workspaceApi = {
     request<Record<NetworkType, EntityKind[]>>(`${ws(id)}/analysis/network-units`),
   map: (id: string, options: NetworkOptions) =>
     request<ScienceMap>(`${ws(id)}/analysis/map`, jsonInit("POST", options)),
+};
+
+// --- exports ------------------------------------------------------------
+
+export type MapExportFormat = "vosviewer" | "graphml" | "pajek" | "csv";
+export type RecordExportFormat = "xlsx" | "csv";
+
+/** Filename the server chose, taken from Content-Disposition. */
+function filenameFrom(response: Response, fallback: string): string {
+  const header = response.headers.get("content-disposition") ?? "";
+  const utf8 = /filename\*=UTF-8''([^;]+)/i.exec(header);
+  if (utf8) return decodeURIComponent(utf8[1]);
+  const plain = /filename="([^"]+)"/i.exec(header);
+  return plain ? plain[1] : fallback;
+}
+
+async function download(url: string, init: RequestInit, fallback: string) {
+  const response = await fetch(url, init);
+  if (!response.ok) throw await readError(response);
+  return { blob: await response.blob(), filename: filenameFrom(response, fallback) };
+}
+
+export const exportApi = {
+  map: (id: string, options: NetworkOptions, format: MapExportFormat) =>
+    download(
+      `${ws(id)}/exports/map?format=${format}`,
+      jsonInit("POST", options),
+      `bibliomap-${format}.zip`,
+    ),
+  records: (id: string, format: RecordExportFormat, includeExcluded: boolean) =>
+    download(
+      `${ws(id)}/exports/records?format=${format}&include_excluded=${includeExcluded}`,
+      {},
+      `bibliomap.${format}`,
+    ),
 };

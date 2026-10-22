@@ -1,3 +1,5 @@
+import math
+
 import pytest
 
 from bibliomap.analysis.entities import EntityKind
@@ -212,7 +214,6 @@ def test_vos_layout_separates_clusters(two_cliques):
 
     assert len(positions) == 8
     assert iterations > 0
-    import math
 
     def spread(keys):
         pts = [positions[k] for k in keys]
@@ -230,8 +231,6 @@ def test_layout_is_deterministic_and_normalized(two_cliques):
     first, _ = vos_layout(two_cliques, seed=3)
     second, _ = vos_layout(two_cliques, seed=3)
     assert first == second
-
-    import math
 
     points = list(first.values())
     pairs = [math.dist(p, q) for i, p in enumerate(points) for q in points[i + 1 :]]
@@ -261,3 +260,91 @@ def test_build_layout_returns_clusters_and_positions(two_cliques):
     result = build_layout(two_cliques, resolution=1.0)
     assert set(result.positions) == set(result.clusters)
     assert result.modularity > 0.3
+
+
+def test_isolated_node_does_not_collapse_the_map():
+    """A node with no links divided by a zero degree once threw the whole
+    map to the origin; it must sit outside the cluster instead."""
+    records = {
+        1: rec(author_keywords=["a", "b", "c"]),
+        2: rec(author_keywords=["a", "b", "c"]),
+        3: rec(author_keywords=["a", "b", "d"]),
+        4: rec(author_keywords=["c", "d"]),
+        5: rec(author_keywords=["lonely"]),
+        6: rec(author_keywords=["lonely"]),
+    }
+    net = co_occurrence_network(
+        records, EntityKind.KEYWORD, min_occurrences=2, normalization=Normalization.ASSOCIATION
+    )
+    assert net.isolated == 1
+
+    positions, _ = vos_layout(net)
+
+    assert len(positions) == len(net.nodes)
+    assert all(all(math.isfinite(v) for v in p) for p in positions.values())
+    at_origin = sum(1 for p in positions.values() if p == (0.0, 0.0))
+    assert at_origin <= 1
+    # The stray sits outside everything that is linked.
+    linked = [positions[k] for k in ("a", "b", "c", "d")]
+    centre = (
+        sum(p[0] for p in linked) / len(linked),
+        sum(p[1] for p in linked) / len(linked),
+    )
+    cluster_radius = max(math.dist(centre, p) for p in linked)
+    assert math.dist(centre, positions["lonely"]) > cluster_radius
+
+
+def test_all_isolated_nodes_are_spread_on_a_circle():
+    records = {i: rec(author_keywords=[f"k{i}"]) for i in range(1, 5)}
+    records |= {i + 10: rec(author_keywords=[f"k{i}"]) for i in range(1, 5)}
+    net = co_occurrence_network(records, EntityKind.KEYWORD, min_occurrences=2)
+    assert net.edges == []
+
+    positions, _ = vos_layout(net)
+    assert len(set(positions.values())) == 4
+
+
+def test_disconnected_components_stay_near_each_other():
+    """Nothing attracts separate components, so laying them out together
+    let repulsion drive them apart for as long as the iteration ran."""
+    records = {
+        1: rec(author_keywords=["a", "b"]),
+        2: rec(author_keywords=["a", "b"]),
+        3: rec(author_keywords=["a", "b"]),
+        4: rec(author_keywords=["x", "y"]),
+        5: rec(author_keywords=["x", "y"]),
+        6: rec(author_keywords=["x", "y"]),
+    }
+    net = co_occurrence_network(records, EntityKind.KEYWORD, min_occurrences=2)
+    positions, _ = vos_layout(net)
+
+    radii = [math.dist((0, 0), p) for p in positions.values()]
+    assert max(radii) < 5
+    # The two pairs stay together.
+    assert math.dist(positions["a"], positions["b"]) < math.dist(positions["a"], positions["x"])
+
+
+def test_a_barely_linked_node_does_not_squash_the_map():
+    """One node whose only link is to a hub has its true optimum hundreds
+    of units out; it belongs on the rim, not off the map."""
+    records: dict[int, Record] = {}
+    core = ["c1", "c2", "c3", "c4", "c5"]
+    for i, a in enumerate(core):
+        for b in core[i + 1 :]:
+            records[len(records) + 1] = rec(author_keywords=[a, b])
+    # "fringe" appears often but shares a document with the core only once.
+    for _ in range(40):
+        records[len(records) + 1] = rec(author_keywords=["fringe", "filler"])
+    records[len(records) + 1] = rec(author_keywords=["fringe", "c1"])
+
+    net = co_occurrence_network(
+        records, EntityKind.KEYWORD, min_occurrences=2, normalization=Normalization.ASSOCIATION
+    )
+    positions, _ = vos_layout(net)
+    radii = {k: math.dist((0, 0), p) for k, p in positions.items()}
+
+    assert all(math.isfinite(r) for r in radii.values())
+    # Bounded: before the rim rule this node sat hundreds of units out.
+    assert max(radii.values()) < 5
+    # The core still holds together, with the fringe outside it.
+    assert max(radii[k] for k in core) < min(radii["fringe"], radii["filler"])

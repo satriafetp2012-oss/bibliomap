@@ -292,5 +292,24 @@
     "hint": "Seret untuk menggeser, gulir untuk memperbesar, klik node untuk detail.",
     "maxEdges": "Batas tautan digambar",
     "edgesLimited": "Menggambar {{shown}} tautan terkuat dari {{total}}. Klaster dan tata letak tetap memakai semuanya."
+  },
+  "export": {
+    "heading": "Ekspor",
+    "map": "Ekspor peta",
+    "data": "Ekspor data",
+    "png": "Gambar PNG",
+    "svg": "Gambar SVG (dapat diedit)",
+    "vosviewer": "Berkas VOSviewer (.zip)",
+    "graphml": "GraphML (Gephi, Cytoscape)",
+    "pajek": "Pajek (.net + .clu)",
+    "csvNet": "CSV node dan tautan",
+    "xlsx": "Laporan Excel (.xlsx)",
+    "csvRecords": "Rekaman CSV",
+    "includeExcluded": "Sertakan rekaman tersaring",
+    "preparing": "Menyiapkan berkas…",
+    "failed": "Ekspor gagal. Coba lagi.",
+    "mapHelp": "PNG dan SVG digambar ulang dari data peta, jadi hasilnya tidak bergantung pada zoom layar.",
+    "dataHelp": "Laporan Excel memuat ringkasan, peringkat, hukum Lotka dan Bradford, angka PRISMA, serta seluruh rekaman.",
+    "needMap": "Buat peta dulu sebelum mengekspornya."
   }
 }

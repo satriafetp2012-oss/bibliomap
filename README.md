@@ -4,7 +4,7 @@ Platform analisis bibliometrik dan pemetaan ilmu pengetahuan berbasis web:
 statistik bibliometrik ala Biblioshiny dan peta jaringan ala VOSviewer dalam
 satu alur.
 
-Status: **Fase 3** (statistik dan peta ilmu pengetahuan). Lihat spesifikasi produk untuk roadmap.
+Status: **Fase 4** (ekspor dan persiapan rilis). Lihat spesifikasi produk untuk roadmap.
 
 ## Yang sudah ada
 
@@ -56,6 +56,10 @@ sampai pembulatan dua desimal.
 
 Peta 5.000 node dirender pada ~65 fps (dibatasi laju penyegaran layar).
 
+- **Ekspor**: peta ke PNG, SVG, berkas VOSviewer (map + network + warna
+  klaster), GraphML, Pajek, dan CSV; data ke laporan Excel berisi ringkasan,
+  peringkat, hukum Lotka dan Bradford, angka PRISMA, serta seluruh rekaman.
+
 ### API
 
 | Endpoint | Fungsi |
@@ -70,6 +74,8 @@ Peta 5.000 node dirender pada ~65 fps (dibatasi laju penyegaran layar).
 | `GET /api/workspaces/{id}/prisma` | Angka diagram PRISMA |
 | `GET /api/workspaces/{id}/analysis/statistics` | Statistik deskriptif dan hukum bibliometrik |
 | `POST /api/workspaces/{id}/analysis/map` | Bangun jaringan, klaster, dan tata letak |
+| `POST /api/workspaces/{id}/exports/map` | Unduh peta (vosviewer, graphml, pajek, csv) |
+| `GET /api/workspaces/{id}/exports/records` | Unduh rekaman (xlsx, csv) |
 - Antarmuka web berbahasa Indonesia untuk pratinjau impor.
 
 ## Menjalankan secara lokal
@@ -119,6 +125,7 @@ backend/
     schema.py          skema rekaman kanonik
     parsers/           parser per format + deteksi otomatis
     analysis/          entitas, metrik, jaringan, Leiden + tata letak VOS
+    exports/           berkas VOSviewer, GraphML, Pajek, CSV, Excel
     workspace/         dedup, merge, filter, PRISMA, penyimpanan SQLite
     api/               endpoint impor, OpenAlex, workspace
     main.py            aplikasi FastAPI
@@ -128,6 +135,13 @@ frontend/
     components/        ImportPanel, RecordTable
     locales/id.json    semua teks antarmuka (Bahasa Indonesia)
 ```
+
+## Membuka peta di VOSviewer
+
+Unduh "Berkas VOSviewer (.zip)" lalu ekstrak. Di VOSviewer pilih **Open**,
+tab **Map and network**, isi *Map file* dengan berkas `-map.txt` dan
+*Network file* dengan `-network.txt`. Warna klaster diimpor lewat
+**Options > Colors > Cluster colors > Import** dari `cluster_colors.txt`.
 
 ## Rujukan metode
 

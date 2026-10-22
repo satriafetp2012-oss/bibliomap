@@ -9,6 +9,7 @@ dependencies = [
     "httpx>=0.28",
     "leidenalg>=0.10",
     "numpy>=2.1",
+    "openpyxl>=3.1",
     "pydantic>=2.9",
     "python-igraph>=0.11",
     "python-multipart>=0.0.12",
@@ -23,6 +24,7 @@ dev = [
     "mypy>=1.13",
     "pytest>=8.3",
     "ruff>=0.8",
+    "types-openpyxl>=3.1.5.20261017",
 ]
 
 [build-system]

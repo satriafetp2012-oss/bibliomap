@@ -3,7 +3,9 @@ import { useTranslation } from "react-i18next";
 
 import { ApiError, workspaceApi } from "../api";
 import type { EntityKind, MapNode, NetworkOptions, NetworkType, ScienceMap } from "../types";
-import { NetworkCanvas, clusterColor } from "./NetworkCanvas";
+import { ExportBar } from "./ExportBar";
+import { clusterColor } from "../clusterColors";
+import { NetworkCanvas } from "./NetworkCanvas";
 
 const NORMALIZATIONS = ["association", "inclusion", "none"] as const;
 
@@ -201,6 +203,13 @@ export function MapPanel({ workspaceId, version }: { workspaceId: string; versio
           {error}
         </p>
       )}
+
+      <ExportBar
+        workspaceId={workspaceId}
+        map={map}
+        options={options}
+        baseName={`bibliomap-${options.type}-${options.unit}`}
+      />
 
       {map && (
         <>

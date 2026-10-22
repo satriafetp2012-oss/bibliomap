@@ -2,22 +2,8 @@ import Graph from "graphology";
 import { useEffect, useRef } from "react";
 import Sigma from "sigma";
 
+import { clusterColor } from "../clusterColors";
 import type { MapNode, ScienceMap } from "../types";
-
-/** Eight cluster colours, readable on both light and dark backgrounds. */
-export const CLUSTER_COLORS = [
-  "#2563eb",
-  "#dc2626",
-  "#16a34a",
-  "#d97706",
-  "#7c3aed",
-  "#0891b2",
-  "#db2777",
-  "#65a30d",
-];
-
-export const clusterColor = (cluster: number) =>
-  CLUSTER_COLORS[(cluster - 1) % CLUSTER_COLORS.length];
 
 /** Node radius in pixels, shrunk as the map gets crowded: 24px circles are
  *  right for 50 items and merge into a solid block at 700. */

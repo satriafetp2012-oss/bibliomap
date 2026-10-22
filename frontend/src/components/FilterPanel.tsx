@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { ApiError, workspaceApi } from "../api";
 import type { DocumentType, FilterSpec, RecordPage } from "../types";
+import { DataExportBar } from "./ExportBar";
 import { RecordTable } from "./RecordTable";
 
 const DOC_TYPES: DocumentType[] = [
@@ -137,6 +138,8 @@ export function FilterPanel({ workspaceId, filters, version, counts, onChanged }
           )}
         </div>
       </form>
+
+      <DataExportBar workspaceId={workspaceId} />
 
       <nav className="tabs subtabs">
         {(["kept", "excluded"] as const).map((v) => (
