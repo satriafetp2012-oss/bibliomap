@@ -59,7 +59,8 @@
     "data": "Filter & data",
     "prisma": "PRISMA",
     "stats": "Statistik",
-    "map": "Peta"
+    "map": "Peta",
+    "guide": "Panduan"
   },
   "openalex": {
     "heading": "Cari di OpenAlex",
@@ -311,5 +312,104 @@
     "mapHelp": "PNG dan SVG digambar ulang dari data peta, jadi hasilnya tidak bergantung pada zoom layar.",
     "dataHelp": "Laporan Excel memuat ringkasan, peringkat, hukum Lotka dan Bradford, angka PRISMA, serta seluruh rekaman.",
     "needMap": "Buat peta dulu sebelum mengekspornya."
+  },
+  "guide": {
+    "heading": "Panduan singkat",
+    "intro": "Enam langkah dari berkas ekspor sampai gambar siap publikasi. Panduan lengkap tersedia di repositori.",
+    "full": "Baca panduan lengkap",
+    "step": "Langkah {{n}}",
+    "steps": [
+      {
+        "title": "Siapkan ekspor yang lengkap",
+        "body": "Mutu analisis ditentukan oleh kelengkapan ekspor. Pilih opsi yang menyertakan abstrak dan daftar referensi; tanpa referensi, jaringan co-citation dan bibliographic coupling tidak dapat dibuat.",
+        "items": [
+          "Web of Science: Export, Plain text atau BibTeX, pilih Full Record and Cited References",
+          "Scopus: Export, CSV atau BibTeX, centang All information",
+          "PubMed: Send to, File, format PubMed (.nbib)",
+          "Lens.org: Export CSV. Zotero, Mendeley, EndNote: Export RIS",
+          "OpenAlex: tidak perlu diunduh, cari langsung dari tab Impor"
+        ]
+      },
+      {
+        "title": "Impor dan simpan tautan workspace",
+        "body": "Unggah semua berkas ke satu workspace; formatnya dideteksi dari isi berkas. Untuk OpenAlex, klik Hitung hasil dulu agar Anda tahu jumlah dan biayanya sebelum mengimpor.",
+        "items": [
+          "Simpan tautan halaman ini. Alamat ?ws=... adalah satu-satunya cara membuka kembali workspace yang sama.",
+          "Ganti nama sumber RIS dan BibTeX, misalnya menjadi Embase, karena nama itu yang muncul di diagram PRISMA.",
+          "Salin URL query OpenAlex ke catatan Anda untuk dicantumkan di bagian Metode."
+        ]
+      },
+      {
+        "title": "Tinjau duplikat",
+        "body": "DOI yang sama dengan judul mirip digabung otomatis. Yang meragukan masuk antrean: DOI sama tetapi judul berbeda, DOI berbeda dengan judul identik (pracetak dan versi terbit), atau judul yang mirip 92 sampai 98 persen.",
+        "items": [
+          "Tekan D untuk duplikat, N untuk bukan duplikat.",
+          "Keputusan Anda mengalahkan aturan otomatis dan dapat dibatalkan.",
+          "Selesaikan antrean sebelum mengambil angka PRISMA untuk manuskrip."
+        ]
+      },
+      {
+        "title": "Terapkan filter",
+        "body": "Saring berdasarkan tahun, jenis dokumen, bahasa, sitasi minimal, atau keharusan ada abstrak. Rekaman dengan nilai kosong tidak dibuang: rekaman tanpa tahun tidak tersaring oleh filter tahun.",
+        "items": [
+          "Rekaman yang tersaring tidak dihapus, hanya dikeluarkan dari analisis.",
+          "Semuanya tercatat di PRISMA beserta alasannya."
+        ]
+      },
+      {
+        "title": "Baca statistik dan buat peta",
+        "body": "Statistik dihitung dari rekaman yang lolos filter. Di peta, node berdekatan berarti sering muncul bersama, dan warna menandai klaster.",
+        "items": [
+          "Co-authorship: siapa bekerja sama dengan siapa.",
+          "Co-occurrence kata kunci: tema yang dibahas bersamaan.",
+          "Bibliographic coupling: kedekatan penelitian saat ini. Co-citation: fondasi intelektual bidang.",
+          "Peta terlalu padat? Naikkan Minimal kemunculan.",
+          "Node di tepi jauh adalah item yang hampir tidak berkaitan dengan apa pun; posisinya memang di pinggir."
+        ]
+      },
+      {
+        "title": "Ekspor",
+        "body": "PNG dan SVG digambar ulang dari data peta pada resolusi 2000 x 1500, jadi hasilnya tidak bergantung pada zoom layar.",
+        "items": [
+          "Berkas VOSviewer (.zip) berisi map, network, dan warna klaster, lengkap dengan petunjuk membukanya.",
+          "GraphML untuk Gephi dan Cytoscape; Pajek untuk jaringan beserta partisinya.",
+          "Laporan Excel memuat 11 lembar: ringkasan, peringkat, Lotka, Bradford, PRISMA, dan seluruh rekaman.",
+          "Diagram PRISMA dapat diunduh sebagai SVG dari tab PRISMA."
+        ]
+      }
+    ],
+    "methodsHeading": "Yang dilaporkan di bagian Metode",
+    "methodsIntro": "Agar tinjauan Anda dapat diulang orang lain, cantumkan:",
+    "methods": [
+      "Basis data dan tanggal pencarian.",
+      "String pencarian lengkap tiap basis data; untuk OpenAlex, salin URL query.",
+      "Jumlah rekaman tiap tahap, diambil dari diagram PRISMA.",
+      "Cara deduplikasi: DOI dan pencocokan fuzzy judul, tahun, serta penulis pertama, dengan tinjauan manual untuk yang meragukan.",
+      "Parameter peta: jenis jaringan, unit analisis, minimal kemunculan, normalisasi, dan resolusi klaster.",
+      "Perangkat lunak: Bibliomap, dengan algoritma Leiden untuk klasterisasi dan teknik VOS untuk tata letak."
+    ],
+    "troubleHeading": "Masalah yang sering terjadi",
+    "trouble": [
+      {
+        "q": "Format file tidak dikenali",
+        "a": "Buka berkas dengan editor teks dan periksa baris pertama. Ekspor WoS diawali FN Clarivate, PubMed diawali PMID-, RIS diawali TY  - , BibTeX diawali @article{."
+      },
+      {
+        "q": "Abstrak atau referensi kosong",
+        "a": "Opsi ekspornya kurang lengkap. Ulangi dengan Full Record and Cited References di WoS, atau All information di Scopus."
+      },
+      {
+        "q": "Kuota harian OpenAlex habis",
+        "a": "Buat API key gratis di openalex.org/settings/api lalu isikan di kolom API key. Key hanya dipakai untuk permintaan itu dan tidak disimpan."
+      },
+      {
+        "q": "Satu penulis mendominasi padahal seharusnya tidak",
+        "a": "Bila ekspor hanya memuat inisial, Lee S bisa jadi beberapa orang berbeda. Ekspor ulang dengan nama lengkap penulis bila tersedia."
+      },
+      {
+        "q": "Workspace hilang",
+        "a": "Workspace hanya dapat dibuka lewat tautan ?ws=... . Periksa riwayat browser Anda."
+      }
+    ]
   }
 }

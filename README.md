@@ -4,7 +4,11 @@ Platform analisis bibliometrik dan pemetaan ilmu pengetahuan berbasis web:
 statistik bibliometrik ala Biblioshiny dan peta jaringan ala VOSviewer dalam
 satu alur.
 
-Status: **Fase 4** (ekspor dan persiapan rilis). Lihat spesifikasi produk untuk roadmap.
+Status: **Fase 4** (ekspor dan persiapan rilis).
+
+**[Panduan pengguna](docs/panduan-pengguna.md)** memuat alur lengkap dari
+mengunduh data di basis data pustaka sampai menghasilkan gambar dan tabel
+untuk manuskrip. Versi ringkasnya ada di tab **Panduan** dalam aplikasi. Lihat spesifikasi produk untuk roadmap.
 
 ## Yang sudah ada
 

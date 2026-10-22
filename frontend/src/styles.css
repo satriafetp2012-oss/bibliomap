@@ -419,3 +419,59 @@ button.secondary {
 .exports .actions {
   gap: 0.5rem;
 }
+
+.guide {
+  max-width: 760px;
+}
+
+.guide h3 {
+  margin-top: 2rem;
+}
+
+.guide .steps {
+  list-style: none;
+  padding: 0;
+  counter-reset: step;
+}
+
+.guide .steps > li {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 1.5rem;
+}
+
+.guide .steps h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.guide li,
+.guide p {
+  line-height: 1.55;
+}
+
+.trouble dt {
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.trouble dd {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}

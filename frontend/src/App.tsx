@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { DedupPanel } from "./components/DedupPanel";
 import { FilterPanel } from "./components/FilterPanel";
+import { GuidePanel } from "./components/GuidePanel";
 import { ImportList } from "./components/ImportList";
 import { ImportPanel } from "./components/ImportPanel";
 import { MapPanel } from "./components/MapPanel";
@@ -11,7 +12,7 @@ import { PrismaDiagram } from "./components/PrismaDiagram";
 import { StatsPanel } from "./components/StatsPanel";
 import { useWorkspace } from "./useWorkspace";
 
-const TABS = ["import", "dedup", "data", "stats", "map", "prisma"] as const;
+const TABS = ["import", "dedup", "data", "stats", "map", "prisma", "guide"] as const;
 type Tab = (typeof TABS)[number];
 
 export default function App() {
@@ -99,6 +100,7 @@ export default function App() {
       )}
       {tab === "stats" && <StatsPanel workspaceId={workspace.id} version={workspace.version} />}
       {tab === "map" && <MapPanel workspaceId={workspace.id} version={workspace.version} />}
+      {tab === "guide" && <GuidePanel />}
       {tab === "prisma" && (
         <PrismaDiagram workspaceId={workspace.id} version={workspace.version} />
       )}
