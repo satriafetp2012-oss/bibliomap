@@ -10,6 +10,11 @@ import type {
   RecordPage,
   Workspace,
   WorkspaceSummary,
+  EntityKind,
+  NetworkOptions,
+  NetworkType,
+  ScienceMap,
+  Statistics,
 } from "./types";
 
 export class ApiError extends Error {}
@@ -103,4 +108,10 @@ export const workspaceApi = {
   records: (id: string, status: "kept" | "excluded", limit = 200) =>
     request<RecordPage>(`${ws(id)}/records?status=${status}&limit=${limit}`),
   prisma: (id: string) => request<PrismaFlow>(`${ws(id)}/prisma`),
+  statistics: (id: string, limit = 20) =>
+    request<Statistics>(`${ws(id)}/analysis/statistics?limit=${limit}`),
+  networkUnits: (id: string) =>
+    request<Record<NetworkType, EntityKind[]>>(`${ws(id)}/analysis/network-units`),
+  map: (id: string, options: NetworkOptions) =>
+    request<ScienceMap>(`${ws(id)}/analysis/map`, jsonInit("POST", options)),
 };

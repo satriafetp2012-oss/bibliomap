@@ -115,7 +115,7 @@ class RecordPage(BaseModel):
 # --- helpers --------------------------------------------------------------
 
 
-def _state(cache: StateCache, workspace_id: str) -> WorkspaceState:
+def get_state(cache: StateCache, workspace_id: str) -> WorkspaceState:
     try:
         return cache.get(workspace_id)
     except WorkspaceNotFoundError as exc:
@@ -189,7 +189,7 @@ def create_workspace(body: CreateWorkspace, store: Store) -> Workspace:
 
 @router.get("/{workspace_id}")
 def get_workspace(workspace_id: str, cache: Cache) -> WorkspaceSummary:
-    return _summary(_state(cache, workspace_id))
+    return _summary(get_state(cache, workspace_id))
 
 
 @router.post("/{workspace_id}/imports/file", status_code=status.HTTP_201_CREATED)
@@ -254,7 +254,7 @@ def pending_duplicates(
     offset: Annotated[int, Query(ge=0)] = 0,
     limit: Annotated[int, Query(ge=1, le=100)] = 20,
 ) -> PendingPage:
-    state = _state(cache, workspace_id)
+    state = get_state(cache, workspace_id)
     page = state.dedup.pending[offset : offset + limit]
     return PendingPage(
         total=len(state.dedup.pending), items=[_pending_pair(state, p) for p in page]
@@ -263,7 +263,7 @@ def pending_duplicates(
 
 @router.post("/{workspace_id}/dedup/decisions", status_code=status.HTTP_204_NO_CONTENT)
 def decide_duplicate(workspace_id: str, body: Decision, store: Store, cache: Cache) -> None:
-    state = _state(cache, workspace_id)
+    state = get_state(cache, workspace_id)
     if body.record_a not in state.records or body.record_b not in state.records:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Rekaman tidak ditemukan.")
     if body.record_a == body.record_b:
@@ -283,7 +283,7 @@ def set_filters(
 ) -> WorkspaceSummary:
     _require_workspace(store, workspace_id)
     store.set_filters(workspace_id, spec)
-    return _summary(_state(cache, workspace_id))
+    return _summary(get_state(cache, workspace_id))
 
 
 @router.get("/{workspace_id}/records")
@@ -294,7 +294,7 @@ def list_records(
     offset: Annotated[int, Query(ge=0)] = 0,
     limit: Annotated[int, Query(ge=1, le=500)] = 100,
 ) -> RecordPage:
-    state = _state(cache, workspace_id)
+    state = get_state(cache, workspace_id)
     rows = (
         [RecordRow(merged=m) for m in state.filtered.kept]
         if status_ == "kept"
@@ -305,4 +305,4 @@ def list_records(
 
 @router.get("/{workspace_id}/prisma")
 def prisma(workspace_id: str, cache: Cache) -> PrismaFlow:
-    return _state(cache, workspace_id).prisma
+    return get_state(cache, workspace_id).prisma

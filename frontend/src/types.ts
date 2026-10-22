@@ -202,3 +202,125 @@ export interface PrismaFlow {
   included: number | null;
   pending_duplicate_reviews: number;
 }
+
+// --- analysis -----------------------------------------------------------
+
+export interface YearCount {
+  year: number;
+  count: number;
+  mean_citations: number | null;
+}
+
+export interface Overview {
+  documents: number;
+  sources: number;
+  authors: number;
+  single_authored: number;
+  keywords_author: number;
+  keywords_index: number;
+  references: number;
+  year_min: number | null;
+  year_max: number | null;
+  mean_citations: number;
+  total_citations: number;
+  mean_authors_per_document: number;
+  collaboration_index: number | null;
+  international_coauthorship_pct: number | null;
+  annual_growth_rate_pct: number | null;
+  documents_per_year: YearCount[];
+  document_types: Record<string, number>;
+}
+
+export interface RankedEntity {
+  key: string;
+  label: string;
+  documents: number;
+  citations: number;
+  h_index: number;
+  g_index: number;
+  m_index: number | null;
+  first_year: number | null;
+}
+
+export interface LotkaFit {
+  rows: { documents_written: number; authors: number; proportion: number; fitted_proportion: number }[];
+  exponent: number;
+  constant: number;
+  r_squared: number;
+  ks_statistic: number;
+}
+
+export interface BradfordAnalysis {
+  rows: { rank: number; key: string; label: string; documents: number; cumulative: number; zone: number }[];
+  zone_sources: number[];
+  zone_documents: number[];
+  multiplier: number | null;
+}
+
+export interface Statistics {
+  overview: Overview;
+  top_sources: RankedEntity[];
+  top_authors: RankedEntity[];
+  top_affiliations: RankedEntity[];
+  top_countries: RankedEntity[];
+  top_keywords: RankedEntity[];
+  lotka: LotkaFit;
+  bradford: BradfordAnalysis;
+}
+
+export type NetworkType =
+  | "co_authorship"
+  | "co_occurrence"
+  | "citation"
+  | "bibliographic_coupling"
+  | "co_citation";
+
+export type EntityKind =
+  | "author"
+  | "source"
+  | "keyword"
+  | "index_keyword"
+  | "affiliation"
+  | "country"
+  | "reference"
+  | "document";
+
+export type Normalization = "none" | "association" | "inclusion";
+
+export interface NetworkOptions {
+  type: NetworkType;
+  unit: EntityKind;
+  min_occurrences: number;
+  min_shared: number;
+  normalization: Normalization;
+  resolution: number;
+  min_cluster_size: number;
+  max_nodes: number;
+  max_edges: number;
+}
+
+export interface MapNode {
+  id: string;
+  label: string;
+  x: number;
+  y: number;
+  cluster: number;
+  weight: number;
+  link_strength: number;
+  documents: number;
+  citations: number;
+  year: number | null;
+}
+
+export interface ScienceMap {
+  type: NetworkType;
+  unit: EntityKind;
+  normalization: Normalization;
+  nodes: MapNode[];
+  edges: { source: string; target: string; weight: number; raw_weight: number }[];
+  clusters: number;
+  modularity: number;
+  iterations: number;
+  truncated_from: number | null;
+  edges_before_limit: number | null;
+}

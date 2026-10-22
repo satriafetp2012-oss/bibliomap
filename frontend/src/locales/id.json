@@ -57,7 +57,9 @@
     "import": "Impor",
     "dedup": "Duplikat",
     "data": "Filter & data",
-    "prisma": "PRISMA"
+    "prisma": "PRISMA",
+    "stats": "Statistik",
+    "map": "Peta"
   },
   "openalex": {
     "heading": "Cari di OpenAlex",
@@ -179,5 +181,116 @@
     "reportsExcluded": "Laporan dikecualikan (n = {{n}})",
     "studiesIncluded": "Studi termasuk dalam tinjauan (n = {{n}})",
     "unknown": "…"
+  },
+  "stats": {
+    "heading": "Statistik deskriptif",
+    "help": "Dihitung dari rekaman yang lolos filter, setelah duplikat digabung.",
+    "empty": "Belum ada data. Impor dulu di tab Impor.",
+    "overview": "Ringkasan",
+    "documents": "Dokumen",
+    "sources": "Sumber",
+    "authors": "Penulis",
+    "singleAuthored": "Dokumen penulis tunggal",
+    "keywordsAuthor": "Kata kunci penulis",
+    "keywordsIndex": "Kata kunci indeks",
+    "references": "Referensi",
+    "period": "Periode",
+    "meanCitations": "Rata-rata sitasi per dokumen",
+    "totalCitations": "Total sitasi",
+    "authorsPerDoc": "Rata-rata penulis per dokumen",
+    "collabIndex": "Indeks kolaborasi",
+    "intlCollab": "Kolaborasi internasional",
+    "growth": "Pertumbuhan tahunan",
+    "perYear": "Produksi ilmiah tahunan",
+    "perYearHelp": "Batang: jumlah dokumen. Garis: rata-rata sitasi.",
+    "topHeading": "Peringkat teratas",
+    "by": {
+      "source": "Sumber",
+      "author": "Penulis",
+      "affiliation": "Afiliasi",
+      "country": "Negara",
+      "keyword": "Kata kunci"
+    },
+    "col": {
+      "rank": "#",
+      "label": "Nama",
+      "documents": "Dokumen",
+      "citations": "Sitasi",
+      "h": "h-index",
+      "g": "g-index",
+      "m": "m-index",
+      "firstYear": "Tahun pertama"
+    },
+    "lotka": "Hukum Lotka (produktivitas penulis)",
+    "lotkaHelp": "Lotka memperkirakan proporsi penulis dengan n publikasi sebanding 1/n^β. Eksponen β ≈ 2 pada banyak bidang.",
+    "lotkaExponent": "Eksponen β",
+    "lotkaR2": "R²",
+    "lotkaKs": "Jarak KS",
+    "lotkaCol": {
+      "n": "Jumlah dokumen",
+      "authors": "Penulis",
+      "observed": "Proporsi teramati",
+      "fitted": "Proporsi model"
+    },
+    "bradford": "Hukum Bradford (zona sumber inti)",
+    "bradfordHelp": "Sumber diurutkan dari paling produktif, lalu dibagi tiga zona dengan jumlah dokumen hampir sama. Zona 1 adalah jurnal inti.",
+    "zone": "Zona {{n}}",
+    "zoneSummary": "{{sources}} sumber · {{documents}} dokumen",
+    "multiplier": "Pengali Bradford",
+    "none": "–"
+  },
+  "map": {
+    "heading": "Peta ilmu pengetahuan",
+    "help": "Node berdekatan berarti sering muncul bersama. Warna menandai klaster hasil algoritma Leiden.",
+    "type": "Jenis jaringan",
+    "unit": "Unit analisis",
+    "types": {
+      "co_authorship": "Co-authorship",
+      "co_occurrence": "Co-occurrence kata kunci",
+      "citation": "Sitasi langsung",
+      "bibliographic_coupling": "Bibliographic coupling",
+      "co_citation": "Co-citation"
+    },
+    "units": {
+      "author": "Penulis",
+      "affiliation": "Afiliasi",
+      "country": "Negara",
+      "keyword": "Kata kunci penulis",
+      "index_keyword": "Kata kunci indeks",
+      "source": "Sumber",
+      "reference": "Referensi",
+      "document": "Dokumen"
+    },
+    "minOccurrences": "Minimal kemunculan",
+    "minShared": "Minimal item bersama",
+    "normalization": "Normalisasi",
+    "normalizations": {
+      "none": "Tanpa normalisasi",
+      "association": "Association strength",
+      "inclusion": "Inclusion (cosine)"
+    },
+    "resolution": "Resolusi klaster",
+    "minClusterSize": "Ukuran klaster minimal",
+    "maxNodes": "Batas node",
+    "build": "Buat peta",
+    "building": "Menghitung tata letak…",
+    "summary": "{{nodes}} node · {{edges}} tautan · {{clusters}} klaster · modularitas {{modularity}}",
+    "truncated": "Dibatasi {{shown}} node terkuat dari {{total}}.",
+    "empty": "Tidak ada node yang memenuhi ambang. Turunkan minimal kemunculan.",
+    "legend": "Klaster",
+    "download": "Unduh PNG",
+    "reset": "Atur ulang tampilan",
+    "labels": "Tampilkan label",
+    "search": "Cari node",
+    "node": {
+      "documents": "Dokumen",
+      "citations": "Sitasi",
+      "links": "Kekuatan tautan",
+      "cluster": "Klaster",
+      "year": "Tahun rata-rata"
+    },
+    "hint": "Seret untuk menggeser, gulir untuk memperbesar, klik node untuk detail.",
+    "maxEdges": "Batas tautan digambar",
+    "edgesLimited": "Menggambar {{shown}} tautan terkuat dari {{total}}. Klaster dan tata letak tetap memakai semuanya."
   }
 }

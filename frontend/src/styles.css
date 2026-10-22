@@ -268,3 +268,135 @@ button.secondary {
 .prisma-arrow {
   fill: var(--border);
 }
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 0.75rem 1.5rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.metric dt {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.metric dd {
+  margin: 0.15rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.chart {
+  width: 100%;
+  max-width: 720px;
+  display: block;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.chart-grid {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.chart-bar {
+  fill: var(--accent);
+  fill-opacity: 0.75;
+}
+
+.chart-line {
+  fill: none;
+  stroke: var(--warn, #b45309);
+  stroke-width: 2;
+}
+
+.chart-tick {
+  font-size: 10px;
+  fill: var(--muted);
+}
+
+.chart-tick.middle {
+  text-anchor: middle;
+}
+
+.chart-tick.end {
+  text-anchor: end;
+}
+
+.chart-tick.accent {
+  fill: var(--warn, #b45309);
+}
+
+.map-toolbar {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem 0 0.5rem;
+}
+
+.map-area {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.network-canvas {
+  flex: 1;
+  height: 620px;
+  min-width: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+}
+
+.map-side {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.map-side h4 {
+  margin: 0 0 0.5rem;
+}
+
+.legend {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+}
+
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.15rem 0;
+}
+
+.swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.metrics.selected {
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}
+
+.metrics.selected dd {
+  font-size: 1rem;
+}
+
+@media (max-width: 860px) {
+  .map-area {
+    flex-direction: column;
+  }
+
+  .map-side {
+    width: auto;
+  }
+}

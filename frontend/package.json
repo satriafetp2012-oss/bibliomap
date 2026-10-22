@@ -12,10 +12,13 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "graphology": "^0.26.0",
+    "graphology-types": "^0.24.8",
     "i18next": "^26.5.4",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "react-i18next": "^17.1.0"
+    "react-i18next": "^17.1.0",
+    "sigma": "^4.0.3"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^7.0.1",

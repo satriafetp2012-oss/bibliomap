@@ -4,7 +4,7 @@ Platform analisis bibliometrik dan pemetaan ilmu pengetahuan berbasis web:
 statistik bibliometrik ala Biblioshiny dan peta jaringan ala VOSviewer dalam
 satu alur.
 
-Status: **Fase 2** (deduplikasi dan PRISMA). Lihat spesifikasi produk untuk roadmap.
+Status: **Fase 3** (statistik dan peta ilmu pengetahuan). Lihat spesifikasi produk untuk roadmap.
 
 ## Yang sudah ada
 
@@ -33,6 +33,28 @@ Status: **Fase 2** (deduplikasi dan PRISMA). Lihat spesifikasi produk untuk road
   Rekaman dengan nilai kosong tidak dibuang.
 - **PRISMA 2020**: terisi otomatis dari impor, dedup, dan filter; dapat diunduh
   sebagai SVG.
+- **Statistik bibliometrik**: ringkasan deskriptif, produksi tahunan, peringkat
+  sumber/penulis/afiliasi/negara/kata kunci dengan h-, g-, dan m-index, hukum
+  Lotka, dan zona Bradford.
+- **Peta ilmu pengetahuan**: lima jenis jaringan (co-authorship, co-occurrence,
+  sitasi langsung, bibliographic coupling, co-citation), normalisasi association
+  strength, klaster Leiden, tata letak VOS, dirender WebGL.
+
+### Verifikasi terhadap bibliometrix
+
+Metrik dibandingkan langsung dengan bibliometrix 5.5.0 pada file ekspor yang sama
+(210 rekaman Scopus). Dokumen, penulis tunggal, rentang tahun, dan total sitasi
+cocok persis; rata-rata sitasi, penulis per dokumen, dan indeks kolaborasi cocok
+sampai pembulatan dua desimal.
+
+| Metrik | Selisih | Penyebab |
+| --- | --- | --- |
+| Jumlah sumber | −0,70% | Nama jurnal dinormalisasi, sehingga dua ejaan digabung |
+| Jumlah penulis | +0,28% | Nama penulis dinormalisasi lintas basis data |
+| Eksponen Lotka | 0% pada input identik | Rumus sama; selisih hanya turunan normalisasi penulis |
+| Zona Bradford | 0% pada input identik | bibliometrix menghitung 21 buku tanpa jurnal sebagai satu "sumber" kosong |
+
+Peta 5.000 node dirender pada ~65 fps (dibatasi laju penyegaran layar).
 
 ### API
 
@@ -46,6 +68,8 @@ Status: **Fase 2** (deduplikasi dan PRISMA). Lihat spesifikasi produk untuk road
 | `POST /api/workspaces/{id}/dedup/decisions` | Simpan keputusan duplikat |
 | `PUT /api/workspaces/{id}/filters` | Terapkan filter |
 | `GET /api/workspaces/{id}/prisma` | Angka diagram PRISMA |
+| `GET /api/workspaces/{id}/analysis/statistics` | Statistik deskriptif dan hukum bibliometrik |
+| `POST /api/workspaces/{id}/analysis/map` | Bangun jaringan, klaster, dan tata letak |
 - Antarmuka web berbahasa Indonesia untuk pratinjau impor.
 
 ## Menjalankan secara lokal
@@ -94,6 +118,7 @@ backend/
   src/bibliomap/
     schema.py          skema rekaman kanonik
     parsers/           parser per format + deteksi otomatis
+    analysis/          entitas, metrik, jaringan, Leiden + tata letak VOS
     workspace/         dedup, merge, filter, PRISMA, penyimpanan SQLite
     api/               endpoint impor, OpenAlex, workspace
     main.py            aplikasi FastAPI
@@ -103,6 +128,13 @@ frontend/
     components/        ImportPanel, RecordTable
     locales/id.json    semua teks antarmuka (Bahasa Indonesia)
 ```
+
+## Rujukan metode
+
+Lotka (1926), Bradford (1934), Hirsch (2005), Egghe (2006), Van Eck & Waltman
+(2009, association strength dan tata letak VOS), Traag dkk. (2019, algoritma
+Leiden). Tata letak ditulis dari fungsi objektif yang dipublikasikan, bukan dari
+kode VOSviewer.
 
 ## Lisensi
 
