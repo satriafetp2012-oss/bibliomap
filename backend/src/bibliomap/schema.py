@@ -20,6 +20,7 @@ class SourceFormat(StrEnum):
     PUBMED = "pubmed"
     BIBTEX = "bibtex"
     OPENALEX = "openalex"
+    LENS = "lens"
 
 
 class DocumentType(StrEnum):
@@ -50,7 +51,7 @@ class Record(BaseModel):
 
     source_format: SourceFormat
     source_id: str | None = Field(
-        default=None, description="WoS UT, Scopus EID, PMID, RIS AN, OpenAlex ID."
+        default=None, description="WoS UT, Scopus EID, PMID, RIS AN, OpenAlex or Lens ID."
     )
     title: str
     authors: list[Author] = Field(default_factory=list)

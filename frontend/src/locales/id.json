@@ -5,7 +5,7 @@
   },
   "import": {
     "heading": "Impor data",
-    "help": "Unggah ekspor Web of Science (plain text atau BibTeX), Scopus (CSV atau BibTeX), RIS, atau PubMed (format PubMed). Format dideteksi otomatis.",
+    "help": "Unggah ekspor Web of Science (plain text, BibTeX, atau RIS), Scopus (CSV, BibTeX, atau RIS), PubMed (format PubMed), Lens.org (CSV), OpenAlex (CSV), atau RIS dari Zotero/Mendeley/EndNote. Format dideteksi otomatis.",
     "chooseFile": "Pilih file",
     "submit": "Pratinjau",
     "loading": "Memproses file…",
@@ -31,7 +31,8 @@
     "ris": "RIS",
     "pubmed": "PubMed",
     "bibtex": "BibTeX",
-    "openalex": "OpenAlex"
+    "openalex": "OpenAlex",
+    "lens": "Lens.org"
   },
   "docType": {
     "article": "Artikel",

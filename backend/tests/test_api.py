@@ -20,6 +20,8 @@ def test_health():
         ("scopus_sample.csv", "scopus", 2),
         ("ris_sample.ris", "ris", 2),
         ("pubmed_sample.nbib", "pubmed", 2),
+        ("lens_sample.csv", "lens", 2),
+        ("openalex_sample.csv", "openalex", 2),
     ],
 )
 def test_preview_auto_detects(fixture_bytes, name, fmt, count):

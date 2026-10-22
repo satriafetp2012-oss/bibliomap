@@ -7,29 +7,24 @@ supported. Placeholder values such as ``[No abstract available]`` are dropped.
 
 from __future__ import annotations
 
-import csv
-import io
 import re
-import sys
 
 from bibliomap.parsers._common import (
     clean,
     dedupe,
+    format_issn,
     map_document_type,
     normalize_doi,
     parse_int,
     parse_year,
+    read_csv,
     split_list,
 )
 from bibliomap.schema import Author, ParseResult, ParseWarning, Record, SourceFormat
 
-# Abstracts and reference lists can exceed csv's default 128 KiB field limit.
-csv.field_size_limit(min(sys.maxsize, 2**31 - 1))
-
 _OLD_AUTHOR_SEP = re.compile(r"(?<=\.),\s+")
 _SCOPUS_AUTHOR_ID = re.compile(r"\s*\(\d+\)$")
 _PLACEHOLDER = re.compile(r"^\[No .+ available\]$", re.IGNORECASE)
-_ISSN_DIGITS = re.compile(r"^(\d{4})(\d{3}[\dX])$", re.IGNORECASE)
 
 
 def _get(row: dict[str, str], column: str) -> str | None:
@@ -45,14 +40,6 @@ def _split_authors(value: str | None) -> list[str]:
     if ";" in value:
         return split_list(value)
     return [a for a in (clean(p) for p in _OLD_AUTHOR_SEP.split(value)) if a]
-
-
-def _format_issn(value: str | None) -> list[str]:
-    issns: list[str] = []
-    for part in split_list(value):
-        match = _ISSN_DIGITS.match(part.replace("-", ""))
-        issns.append(f"{match.group(1)}-{match.group(2).upper()}" if match else part)
-    return issns
 
 
 def _author_affiliation(entry: str, short_name: str) -> str | None:
@@ -102,7 +89,7 @@ def _to_record(row: dict[str, str]) -> Record | None:
         abstract=_get(row, "Abstract"),
         doi=normalize_doi(_get(row, "DOI")),
         pmid=_get(row, "PubMed ID"),
-        issn=_format_issn(_get(row, "ISSN")),
+        issn=format_issn(split_list(_get(row, "ISSN"))),
         volume=_get(row, "Volume"),
         issue=_get(row, "Issue"),
         page_start=_get(row, "Page start"),
@@ -120,12 +107,10 @@ def _to_record(row: dict[str, str]) -> Record | None:
 
 
 def parse_scopus(text: str) -> ParseResult:
-    reader = csv.DictReader(io.StringIO(text.lstrip("\ufeff")))
-    # Normalize header names: stray BOMs and spaces appear in some exports.
-    reader.fieldnames = [name.strip().lstrip("\ufeff") for name in reader.fieldnames or []]
+    reader = read_csv(text)
 
     warnings: list[ParseWarning] = []
-    if "Title" not in reader.fieldnames:
+    if "Title" not in (reader.fieldnames or []):
         warnings.append(
             ParseWarning(message="Kolom 'Title' tidak ditemukan; bukan file CSV Scopus?")
         )

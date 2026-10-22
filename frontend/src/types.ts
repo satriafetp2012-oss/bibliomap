@@ -1,6 +1,13 @@
 // Mirrors bibliomap.schema on the backend.
 
-export type SourceFormat = "wos" | "scopus" | "ris" | "pubmed" | "bibtex" | "openalex";
+export type SourceFormat =
+  | "wos"
+  | "scopus"
+  | "ris"
+  | "pubmed"
+  | "bibtex"
+  | "openalex"
+  | "lens";
 
 export type DocumentType =
   | "article"

@@ -2,13 +2,20 @@
 
 from __future__ import annotations
 
+import csv
+import io
 import re
+import sys
 
 from bibliomap.schema import DocumentType
+
+# Abstracts and reference lists can exceed csv's default 128 KiB field limit.
+csv.field_size_limit(min(sys.maxsize, 2**31 - 1))
 
 _DOI_PREFIX = re.compile(r"^(?:https?://(?:dx\.)?doi\.org/|doi:\s*)", re.IGNORECASE)
 _YEAR = re.compile(r"(?<!\d)(1[5-9]\d{2}|2\d{3})(?!\d)")
 _WS = re.compile(r"\s+")
+_ISSN_DIGITS = re.compile(r"^(\d{4})(\d{3}[\dX])$", re.IGNORECASE)
 
 # Lower-cased raw type label -> normalized type. Covers WoS DT, Scopus
 # "Document Type", RIS TY and PubMed PT vocabularies.
@@ -33,7 +40,6 @@ _DOCTYPE_MAP: dict[str, DocumentType] = {
     "echap": DocumentType.BOOK_CHAPTER,
     "ebook": DocumentType.BOOK,
     # PubMed PT
-    "journal article": DocumentType.ARTICLE,
     "systematic review": DocumentType.REVIEW,
     "meta-analysis": DocumentType.REVIEW,
     "comment": DocumentType.LETTER,
@@ -46,6 +52,10 @@ _DOCTYPE_MAP: dict[str, DocumentType] = {
     "conference-paper": DocumentType.CONFERENCE_PAPER,
     "book-chapter": DocumentType.BOOK_CHAPTER,
     "preprint": DocumentType.PREPRINT,
+    # Lens publication types
+    "journal article": DocumentType.ARTICLE,
+    "conference proceedings article": DocumentType.CONFERENCE_PAPER,
+    "conference proceedings": DocumentType.CONFERENCE_PAPER,
 }
 
 # When a record carries several PubMed PT values, the most specific wins.
@@ -148,3 +158,19 @@ def expand_page_range(value: str | None) -> tuple[str | None, str | None]:
     if start.isdigit() and end.isdigit() and len(end) < len(start):
         end = start[: len(start) - len(end)] + end
     return start or None, end or None
+
+
+def read_csv(text: str) -> csv.DictReader[str]:
+    """DictReader with header names stripped of BOMs and stray spaces."""
+    reader = csv.DictReader(io.StringIO(text.lstrip("\ufeff")))
+    reader.fieldnames = [name.strip().lstrip("\ufeff") for name in reader.fieldnames or []]
+    return reader
+
+
+def format_issn(values: list[str]) -> list[str]:
+    """Normalize ISSNs to NNNN-NNNN (Scopus and Lens export bare digits)."""
+    issns: list[str] = []
+    for value in values:
+        match = _ISSN_DIGITS.match(value.replace("-", "").strip())
+        issns.append(f"{match.group(1)}-{match.group(2).upper()}" if match else value.strip())
+    return dedupe([i for i in issns if i])

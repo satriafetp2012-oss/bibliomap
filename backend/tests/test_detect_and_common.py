@@ -19,6 +19,8 @@ from bibliomap.schema import DocumentType, SourceFormat
         ("ris_sample.ris", SourceFormat.RIS),
         ("pubmed_sample.nbib", SourceFormat.PUBMED),
         ("bibtex_sample.bib", SourceFormat.BIBTEX),
+        ("lens_sample.csv", SourceFormat.LENS),
+        ("openalex_sample.csv", SourceFormat.OPENALEX),
     ],
 )
 def test_detects_each_fixture(fixture_bytes, name, expected):

@@ -15,9 +15,11 @@ Status: **Fase 1** (fondasi dan impor). Lihat spesifikasi produk untuk roadmap.
   | --- | --- | --- |
   | Web of Science | Plain text (tagged) | Penulis ditautkan ke afiliasi (C1) dan ORCID (OI) |
   | Scopus | CSV | Format penulis lama (`,`) dan baru (`;`) |
-  | RIS | `.ris` | EndNote, Zotero, Mendeley, ekspor RIS Scopus/WoS |
+  | RIS | `.ris` | EndNote, Zotero, Mendeley, EMBASE, ScienceDirect, ekspor RIS Scopus/WoS |
   | PubMed | Format PubMed/MEDLINE (`.nbib`) | Afiliasi dan ORCID per penulis, halaman disingkat diperluas |
   | WoS, Scopus, Zotero, dll. | BibTeX (`.bib`) | Semantik field per eksportir, aksen LaTeX, `@string` |
+  | Lens.org | CSV | Referensi sebagai Lens ID, Fields of Study + MeSH |
+  | OpenAlex (web) | CSV | Kolom bertitik, nilai ganda dipisah `\|` |
 
 - Pencarian dan impor langsung dari [OpenAlex](https://openalex.org) dengan query
   builder (kata kunci boolean, rentang tahun, jenis dokumen, bahasa, akses terbuka).
