@@ -1,0 +1,2068 @@
+{
+ "meta": {
+  "count": 65,
+  "per_page": 3,
+  "next_cursor": "IlsyMS43ODM1ODUsIDE1NzI1NjY0MDAwMDAsICdodHRwczovL29wZW5hbGV4Lm9yZy9XMjk4Nzg3ODA1NiddIg=="
+ },
+ "results": [
+  {
+   "id": "https://openalex.org/W3149448788",
+   "doi": "https://doi.org/10.1088/1757-899x/1098/6/062105",
+   "display_name": "Armadillo modelled foldable motorcycle helmet: A preliminary design concept for rider in Indonesia",
+   "publication_year": 2021,
+   "type": "conference-paper",
+   "language": "en",
+   "authorships": [
+    {
+     "author_position": "first",
+     "author": {
+      "id": "https://openalex.org/A5033024160",
+      "display_name": "Nadhifatul Maulidati",
+      "orcid": null,
+      "observed_orcids": []
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I4210165309",
+       "display_name": "Sampoerna University",
+       "ror": "https://ror.org/05t91sk49",
+       "country_code": "ID",
+       "type": "education",
+       "lineage": [
+        "https://openalex.org/I4210165309"
+       ]
+      }
+     ],
+     "countries": [
+      "ID"
+     ],
+     "is_corresponding": false,
+     "raw_author_name": "N Maulidati",
+     "raw_affiliation_strings": [
+      "Department of Mechanical Engineering, Faculty of Engineering and Technology, Sampoerna University, Jakarta, Indonesia"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "Department of Mechanical Engineering, Faculty of Engineering and Technology, Sampoerna University, Jakarta, Indonesia",
+       "institution_ids": [
+        "https://openalex.org/I4210165309"
+       ]
+      }
+     ]
+    },
+    {
+     "author_position": "middle",
+     "author": {
+      "id": "https://openalex.org/A5110049238",
+      "display_name": "Abdul Dwi Nur Cahyo",
+      "orcid": null,
+      "observed_orcids": []
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I4210165309",
+       "display_name": "Sampoerna University",
+       "ror": "https://ror.org/05t91sk49",
+       "country_code": "ID",
+       "type": "education",
+       "lineage": [
+        "https://openalex.org/I4210165309"
+       ]
+      }
+     ],
+     "countries": [
+      "ID"
+     ],
+     "is_corresponding": false,
+     "raw_author_name": "A D N Cahyo",
+     "raw_affiliation_strings": [
+      "Department of Mechanical Engineering, Faculty of Engineering and Technology, Sampoerna University, Jakarta, Indonesia"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "Department of Mechanical Engineering, Faculty of Engineering and Technology, Sampoerna University, Jakarta, Indonesia",
+       "institution_ids": [
+        "https://openalex.org/I4210165309"
+       ]
+      }
+     ]
+    },
+    {
+     "author_position": "middle",
+     "author": {
+      "id": "https://openalex.org/A5071843099",
+      "display_name": "K Irodatillah",
+      "orcid": null,
+      "observed_orcids": []
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I4210165309",
+       "display_name": "Sampoerna University",
+       "ror": "https://ror.org/05t91sk49",
+       "country_code": "ID",
+       "type": "education",
+       "lineage": [
+        "https://openalex.org/I4210165309"
+       ]
+      }
+     ],
+     "countries": [
+      "ID"
+     ],
+     "is_corresponding": false,
+     "raw_author_name": "K Irodatillah",
+     "raw_affiliation_strings": [
+      "Department of Mechanical Engineering, Faculty of Engineering and Technology, Sampoerna University, Jakarta, Indonesia"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "Department of Mechanical Engineering, Faculty of Engineering and Technology, Sampoerna University, Jakarta, Indonesia",
+       "institution_ids": [
+        "https://openalex.org/I4210165309"
+       ]
+      }
+     ]
+    },
+    {
+     "author_position": "last",
+     "author": {
+      "id": "https://openalex.org/A5075488695",
+      "display_name": "Farid Triawan",
+      "orcid": "https://orcid.org/0000-0002-9878-3167",
+      "observed_orcids": [
+       "https://orcid.org/0000-0002-9878-3167"
+      ]
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I4210165309",
+       "display_name": "Sampoerna University",
+       "ror": "https://ror.org/05t91sk49",
+       "country_code": "ID",
+       "type": "education",
+       "lineage": [
+        "https://openalex.org/I4210165309"
+       ]
+      }
+     ],
+     "countries": [
+      "ID"
+     ],
+     "is_corresponding": true,
+     "raw_author_name": "F Triawan",
+     "raw_affiliation_strings": [
+      "Department of Mechanical Engineering, Faculty of Engineering and Technology, Sampoerna University, Jakarta, Indonesia"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "Department of Mechanical Engineering, Faculty of Engineering and Technology, Sampoerna University, Jakarta, Indonesia",
+       "institution_ids": [
+        "https://openalex.org/I4210165309"
+       ]
+      }
+     ]
+    }
+   ],
+   "primary_location": {
+    "id": "doi:10.1088/1757-899x/1098/6/062105",
+    "doi": "https://doi.org/10.1088/1757-899x/1098/6/062105",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1088/1757-899x/1098/6/062105",
+    "pdf_url": "https://iopscience.iop.org/article/10.1088/1757-899X/1098/6/062105/pdf",
+    "source": {
+     "id": "https://openalex.org/S4210189194",
+     "display_name": "IOP Conference Series Materials Science and Engineering",
+     "issn_l": "1757-8981",
+     "issn": [
+      "1757-8981",
+      "1757-899X"
+     ],
+     "is_oa": true,
+     "is_in_doaj": false,
+     "is_core": false,
+     "listed_in": [
+      "jufo-1"
+     ],
+     "host_organization": "https://openalex.org/P4310320083",
+     "host_organization_name": "IOP Publishing",
+     "host_organization_lineage": [
+      "https://openalex.org/P4310320083",
+      "https://openalex.org/P4310311669"
+     ],
+     "host_organization_lineage_names": [
+      "IOP Publishing",
+      "Institute of Physics"
+     ],
+     "type": "conference"
+    },
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "IOP Conference Series: Materials Science and Engineering",
+    "raw_type": "journal-article"
+   },
+   "biblio": {
+    "volume": "1098",
+    "issue": "6",
+    "first_page": "062105",
+    "last_page": "062105"
+   },
+   "ids": {
+    "openalex": "https://openalex.org/W3149448788",
+    "doi": "https://doi.org/10.1088/1757-899x/1098/6/062105",
+    "mag": "3149448788"
+   },
+   "keywords": [
+    {
+     "id": "https://openalex.org/keywords/helmet-design",
+     "display_name": "helmet design",
+     "score": 0.6079999804496765
+    },
+    {
+     "id": "https://openalex.org/keywords/folding-mechanism",
+     "display_name": "folding mechanism",
+     "score": 0.574999988079071
+    },
+    {
+     "id": "https://openalex.org/keywords/locking-mechanism",
+     "display_name": "locking mechanism",
+     "score": 0.9340000152587891
+    },
+    {
+     "id": "https://openalex.org/keywords/impact-energy-absorption",
+     "display_name": "impact energy absorption",
+     "score": 0.8360000252723694
+    },
+    {
+     "id": "https://openalex.org/keywords/rider-safety",
+     "display_name": "rider safety",
+     "score": 0.7570000290870667
+    }
+   ],
+   "abstract_inverted_index": {
+    "Abstract": [
+     0
+    ],
+    "Safety": [
+     1
+    ],
+    "is": [
+     2,
+     15,
+     85,
+     94,
+     120
+    ],
+    "an": [
+     3
+    ],
+    "important": [
+     4
+    ],
+    "thing": [
+     5
+    ],
+    "while": [
+     6
+    ],
+    "riding": [
+     7
+    ],
+    "a": [
+     8,
+     13,
+     45,
+     88,
+     100,
+     108
+    ],
+    "bicycle": [
+     9
+    ],
+    "or": [
+     10
+    ],
+    "motorcycle.": [
+     11
+    ],
+    "Using": [
+     12
+    ],
+    "helmet": [
+     14,
+     35,
+     47,
+     105
+    ],
+    "one": [
+     16
+    ],
+    "of": [
+     17,
+     23,
+     37,
+     111
+    ],
+    "the": [
+     18,
+     24,
+     34,
+     42,
+     49,
+     62,
+     68,
+     73,
+     82,
+     97,
+     102,
+     115,
+     125
+    ],
+    "solutions": [
+     19
+    ],
+    "to": [
+     20,
+     32,
+     54,
+     122,
+     124
+    ],
+    "increase": [
+     21
+    ],
+    "safety": [
+     22,
+     69
+    ],
+    "rider,": [
+     25
+    ],
+    "but": [
+     26
+    ],
+    "sometimes": [
+     27
+    ],
+    "people": [
+     28,
+     56
+    ],
+    "are": [
+     29
+    ],
+    "too": [
+     30
+    ],
+    "lazy": [
+     31
+    ],
+    "bring": [
+     33
+    ],
+    "because": [
+     36
+    ],
+    "its": [
+     38
+    ],
+    "big": [
+     39
+    ],
+    "size.": [
+     40
+    ],
+    "In": [
+     41
+    ],
+    "present": [
+     43
+    ],
+    "work,": [
+     44
+    ],
+    "foldable": [
+     46,
+     104
+    ],
+    "adopting": [
+     48
+    ],
+    "Armadillo": [
+     50
+    ],
+    "concept": [
+     51
+    ],
+    "was": [
+     52
+    ],
+    "proposed": [
+     53,
+     103
+    ],
+    "make": [
+     55
+    ],
+    "feel": [
+     57
+    ],
+    "more": [
+     58
+    ],
+    "comfortable": [
+     59
+    ],
+    "in": [
+     60,
+     96
+    ],
+    "carrying": [
+     61
+    ],
+    "helmet.": [
+     63
+    ],
+    "The": [
+     64
+    ],
+    "design": [
+     65,
+     128
+    ],
+    "also": [
+     66
+    ],
+    "follows": [
+     67
+    ],
+    "standard": [
+     70
+    ],
+    "required": [
+     71
+    ],
+    "by": [
+     72
+    ],
+    "SNI": [
+     74
+    ],
+    "(Indonesia": [
+     75
+    ],
+    "National": [
+     76
+    ],
+    "Standard).": [
+     77
+    ],
+    "A": [
+     78
+    ],
+    "locking": [
+     79
+    ],
+    "system": [
+     80
+    ],
+    "for": [
+     81,
+     91
+    ],
+    "folding": [
+     83
+    ],
+    "mechanism": [
+     84
+    ],
+    "discussed,": [
+     86
+    ],
+    "and": [
+     87
+    ],
+    "honeycomb": [
+     89
+    ],
+    "foam": [
+     90
+    ],
+    "impact": [
+     92
+    ],
+    "absorber": [
+     93
+    ],
+    "considered": [
+     95
+    ],
+    "design.": [
+     98
+    ],
+    "As": [
+     99
+    ],
+    "result,": [
+     101
+    ],
+    "can": [
+     106
+    ],
+    "have": [
+     107
+    ],
+    "reduction": [
+     109
+    ],
+    "volume": [
+     110
+    ],
+    "23.75%": [
+     112
+    ],
+    "compared": [
+     113
+    ],
+    "with": [
+     114
+    ],
+    "non-foldable": [
+     116
+    ],
+    "one.": [
+     117
+    ],
+    "This": [
+     118
+    ],
+    "work": [
+     119
+    ],
+    "expected": [
+     121
+    ],
+    "contribute": [
+     123
+    ],
+    "innovative": [
+     126
+    ],
+    "engineering": [
+     127
+    ],
+    "field.": [
+     129
+    ]
+   },
+   "cited_by_count": 0,
+   "referenced_works": [
+    "https://openalex.org/W2091393395",
+    "https://openalex.org/W2337520271",
+    "https://openalex.org/W2590757232",
+    "https://openalex.org/W2622223768",
+    "https://openalex.org/W2914745092",
+    "https://openalex.org/W3014543970"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W2945914970",
+   "doi": "https://doi.org/10.1109/icitisee.2018.8721027",
+   "display_name": "The Prototype of Smart Helmet with Safety Riding Notification for Motorcycle Rider",
+   "publication_year": 2018,
+   "type": "conference-paper",
+   "language": "en",
+   "authorships": [
+    {
+     "author_position": "first",
+     "author": {
+      "id": "https://openalex.org/A5065851927",
+      "display_name": "Agung Rahmat Budiman",
+      "orcid": null,
+      "observed_orcids": []
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I862893732",
+       "display_name": "Telkom University",
+       "ror": "https://ror.org/0004wsx81",
+       "country_code": "ID",
+       "type": "education",
+       "lineage": [
+        "https://openalex.org/I862893732"
+       ]
+      }
+     ],
+     "countries": [
+      "ID"
+     ],
+     "is_corresponding": false,
+     "raw_author_name": "Agung Rahmat Budiman",
+     "raw_affiliation_strings": [
+      "School of Computing, Telkom University, Bandung 40257, Indonesia"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "School of Computing, Telkom University, Bandung 40257, Indonesia",
+       "institution_ids": [
+        "https://openalex.org/I862893732"
+       ]
+      }
+     ]
+    },
+    {
+     "author_position": "middle",
+     "author": {
+      "id": "https://openalex.org/A5040611130",
+      "display_name": "Dodi Wisaksono Sudiharto",
+      "orcid": "https://orcid.org/0000-0002-3068-1252",
+      "observed_orcids": [
+       "https://orcid.org/0000-0002-3068-1252"
+      ]
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I862893732",
+       "display_name": "Telkom University",
+       "ror": "https://ror.org/0004wsx81",
+       "country_code": "ID",
+       "type": "education",
+       "lineage": [
+        "https://openalex.org/I862893732"
+       ]
+      }
+     ],
+     "countries": [
+      "ID"
+     ],
+     "is_corresponding": false,
+     "raw_author_name": "Dodi Wisaksono Sudiharto",
+     "raw_affiliation_strings": [
+      "School of Computing, Telkom University, Bandung 40257, Indonesia"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "School of Computing, Telkom University, Bandung 40257, Indonesia",
+       "institution_ids": [
+        "https://openalex.org/I862893732"
+       ]
+      }
+     ]
+    },
+    {
+     "author_position": "last",
+     "author": {
+      "id": "https://openalex.org/A5060711728",
+      "display_name": "Tri Brotoharsono",
+      "orcid": "https://orcid.org/0000-0001-7364-1456",
+      "observed_orcids": [
+       "https://orcid.org/0000-0001-7364-1456"
+      ]
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I862893732",
+       "display_name": "Telkom University",
+       "ror": "https://ror.org/0004wsx81",
+       "country_code": "ID",
+       "type": "education",
+       "lineage": [
+        "https://openalex.org/I862893732"
+       ]
+      }
+     ],
+     "countries": [
+      "ID"
+     ],
+     "is_corresponding": false,
+     "raw_author_name": "Tri Brotoharsono",
+     "raw_affiliation_strings": [
+      "School of Computing, Telkom University, Bandung 40257, Indonesia"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "School of Computing, Telkom University, Bandung 40257, Indonesia",
+       "institution_ids": [
+        "https://openalex.org/I862893732"
+       ]
+      }
+     ]
+    }
+   ],
+   "primary_location": {
+    "id": "doi:10.1109/icitisee.2018.8721027",
+    "doi": "https://doi.org/10.1109/icitisee.2018.8721027",
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.1109/icitisee.2018.8721027",
+    "pdf_url": null,
+    "source": null,
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "2018 3rd International Conference on Information Technology, Information System and Electrical Engineering (ICITISEE)",
+    "raw_type": "proceedings-article"
+   },
+   "biblio": {
+    "volume": null,
+    "issue": null,
+    "first_page": "362",
+    "last_page": "367"
+   },
+   "ids": {
+    "openalex": "https://openalex.org/W2945914970",
+    "doi": "https://doi.org/10.1109/icitisee.2018.8721027",
+    "mag": "2945914970"
+   },
+   "keywords": [
+    {
+     "id": "https://openalex.org/keywords/smart-helmet",
+     "display_name": "smart helmet",
+     "score": 0.9959999918937683
+    },
+    {
+     "id": "https://openalex.org/keywords/motorcycle-safety",
+     "display_name": "motorcycle safety",
+     "score": 0.847000002861023
+    },
+    {
+     "id": "https://openalex.org/keywords/traffic-accident-prevention",
+     "display_name": "traffic accident prevention",
+     "score": 0.718999981880188
+    },
+    {
+     "id": "https://openalex.org/keywords/safety-helmet-detection",
+     "display_name": "helmet detection",
+     "score": 0.5889999866485596
+    },
+    {
+     "id": "https://openalex.org/keywords/shock-detection",
+     "display_name": "shock detection",
+     "score": 0.7239999771118164
+    },
+    {
+     "id": "https://openalex.org/keywords/traumatic-brain-injury",
+     "display_name": "traumatic brain injury",
+     "score": 0.515999972820282
+    },
+    {
+     "id": "https://openalex.org/keywords/human-factors-in-traffic-accidents",
+     "display_name": "human factors in traffic accidents",
+     "score": 0.703000009059906
+    },
+    {
+     "id": "https://openalex.org/keywords/road-conditions",
+     "display_name": "road conditions",
+     "score": 0.4129999876022339
+    }
+   ],
+   "abstract_inverted_index": {
+    "Motorcycle": [
+     0
+    ],
+    "is": [
+     1,
+     62,
+     74,
+     183,
+     247
+    ],
+    "the": [
+     2,
+     29,
+     52,
+     57,
+     65,
+     75,
+     86,
+     104,
+     121,
+     137,
+     142,
+     146,
+     151,
+     165,
+     170,
+     187,
+     198,
+     201,
+     217,
+     236
+    ],
+    "highest": [
+     3,
+     58
+    ],
+    "contributor": [
+     4
+    ],
+    "of": [
+     5,
+     13,
+     48,
+     54,
+     60,
+     64,
+     78,
+     88,
+     186,
+     213,
+     239
+    ],
+    "a": [
+     6,
+     42,
+     55,
+     89,
+     92,
+     115,
+     160
+    ],
+    "traffic": [
+     7,
+     23,
+     38,
+     49,
+     131,
+     195
+    ],
+    "accident": [
+     8
+    ],
+    "in": [
+     9,
+     70,
+     191,
+     205,
+     216,
+     228
+    ],
+    "Indonesia": [
+     10,
+     192
+    ],
+    "which": [
+     11
+    ],
+    "83%": [
+     12
+    ],
+    "it": [
+     14
+    ],
+    "caused": [
+     15
+    ],
+    "by": [
+     16,
+     80,
+     98
+    ],
+    "human": [
+     17,
+     20
+    ],
+    "factors.": [
+     18
+    ],
+    "These": [
+     19,
+     133
+    ],
+    "factors": [
+     21,
+     127,
+     134
+    ],
+    "include": [
+     22
+    ],
+    "signs": [
+     24
+    ],
+    "violation": [
+     25
+    ],
+    "and": [
+     26,
+     46,
+     101,
+     144,
+     148,
+     220,
+     225,
+     230,
+     245
+    ],
+    "riding": [
+     27
+    ],
+    "above": [
+     28,
+     150
+    ],
+    "speed": [
+     30,
+     44,
+     152,
+     176,
+     229,
+     240
+    ],
+    "limit.": [
+     31,
+     153
+    ],
+    "Besides": [
+     32
+    ],
+    "that,": [
+     33,
+     156
+    ],
+    "road": [
+     34,
+     189
+    ],
+    "condition": [
+     35,
+     190
+    ],
+    "also": [
+     36
+    ],
+    "affects": [
+     37
+    ],
+    "accident,": [
+     39
+    ],
+    "such": [
+     40,
+     172
+    ],
+    "as": [
+     41,
+     91,
+     173
+    ],
+    "pothole,": [
+     43
+    ],
+    "bump": [
+     45,
+     177
+    ],
+    "lack": [
+     47
+    ],
+    "signs.": [
+     50
+    ],
+    "In": [
+     51,
+     234
+    ],
+    "case": [
+     53
+    ],
+    "fatality,": [
+     56
+    ],
+    "proportion": [
+     59
+    ],
+    "fatalities": [
+     61
+    ],
+    "22.4%": [
+     63
+    ],
+    "total": [
+     66
+    ],
+    "145,478": [
+     67
+    ],
+    "victims": [
+     68
+    ],
+    "occurred": [
+     69
+    ],
+    "2011.": [
+     71
+    ],
+    "Head": [
+     72
+    ],
+    "injury": [
+     73
+    ],
+    "main": [
+     76
+    ],
+    "factor": [
+     77
+    ],
+    "casualties": [
+     79
+    ],
+    "70%.": [
+     81
+    ],
+    "Based": [
+     82
+    ],
+    "on": [
+     83
+    ],
+    "these": [
+     84
+    ],
+    "statistics,": [
+     85
+    ],
+    "role": [
+     87
+    ],
+    "helmet": [
+     90,
+     117,
+     143,
+     203,
+     218
+    ],
+    "head": [
+     93
+    ],
+    "protector": [
+     94
+    ],
+    "must": [
+     95
+    ],
+    "be": [
+     96
+    ],
+    "worn": [
+     97,
+     141
+    ],
+    "motorcycle": [
+     99
+    ],
+    "riders": [
+     100
+    ],
+    "make": [
+     102
+    ],
+    "sure": [
+     103
+    ],
+    "strap": [
+     105,
+     147,
+     221
+    ],
+    "perfectly": [
+     106
+    ],
+    "locked.": [
+     107
+    ],
+    "To": [
+     108
+    ],
+    "overcome": [
+     109
+    ],
+    "this": [
+     110,
+     112,
+     157,
+     206
+    ],
+    "problem,": [
+     111
+    ],
+    "study": [
+     113,
+     158,
+     207
+    ],
+    "introduces": [
+     114
+    ],
+    "smart": [
+     116,
+     202,
+     243
+    ],
+    "system": [
+     118,
+     204,
+     224
+    ],
+    "to": [
+     119,
+     163,
+     194
+    ],
+    "warn": [
+     120,
+     164
+    ],
+    "rider": [
+     122,
+     138,
+     166
+    ],
+    "when": [
+     123,
+     136,
+     167
+    ],
+    "they": [
+     124
+    ],
+    "meet": [
+     125
+    ],
+    "dangerous": [
+     126
+    ],
+    "that": [
+     128
+    ],
+    "risk": [
+     129
+    ],
+    "causing": [
+     130
+    ],
+    "accident.": [
+     132
+    ],
+    "are": [
+     135
+    ],
+    "has": [
+     139,
+     208
+    ],
+    "not": [
+     140
+    ],
+    "lock": [
+     145,
+     222
+    ],
+    "speeding": [
+     149
+    ],
+    "Other": [
+     154
+    ],
+    "than": [
+     155
+    ],
+    "offers": [
+     159
+    ],
+    "new": [
+     161
+    ],
+    "feature": [
+     162,
+     182
+    ],
+    "passing": [
+     168
+    ],
+    "through": [
+     169
+    ],
+    "obstacle": [
+     171
+    ],
+    "potholes": [
+     174
+    ],
+    "or": [
+     175
+    ],
+    "at": [
+     178
+    ],
+    "unsafe": [
+     179
+    ],
+    "speed.": [
+     180
+    ],
+    "This": [
+     181
+    ],
+    "offered": [
+     184
+    ],
+    "because": [
+     185
+    ],
+    "bad": [
+     188
+    ],
+    "contributes": [
+     193
+    ],
+    "accidents.": [
+     196
+    ],
+    "From": [
+     197
+    ],
+    "test's": [
+     199
+    ],
+    "results,": [
+     200
+    ],
+    "an": [
+     209
+    ],
+    "average": [
+     210,
+     237
+    ],
+    "response": [
+     211
+    ],
+    "time": [
+     212
+    ],
+    "1.4": [
+     214
+    ],
+    "seconds": [
+     215,
+     227
+    ],
+    "use": [
+     219
+    ],
+    "detection": [
+     223,
+     232
+    ],
+    "0.3": [
+     226
+    ],
+    "shock": [
+     231
+    ],
+    "system.": [
+     233
+    ],
+    "addition,": [
+     235
+    ],
+    "difference": [
+     238
+    ],
+    "calculation": [
+     241
+    ],
+    "between": [
+     242
+    ],
+    "helmets": [
+     244
+    ],
+    "GPS": [
+     246
+    ],
+    "3.3": [
+     248
+    ],
+    "km/hour.": [
+     249
+    ]
+   },
+   "cited_by_count": 21,
+   "referenced_works": [
+    "https://openalex.org/W1512711506",
+    "https://openalex.org/W1962540322",
+    "https://openalex.org/W2417605257",
+    "https://openalex.org/W2473249703",
+    "https://openalex.org/W2510860270",
+    "https://openalex.org/W2542880163",
+    "https://openalex.org/W2595039091",
+    "https://openalex.org/W2733766923",
+    "https://openalex.org/W2734755519"
+   ]
+  },
+  {
+   "id": "https://openalex.org/W2987878056",
+   "doi": "https://doi.org/10.1088/1742-6596/1273/1/012083",
+   "display_name": "The Utilization Of Coconut Shell Waste As The Helmet Coating Materials For Motorcycle Riders",
+   "publication_year": 2019,
+   "type": "conference-paper",
+   "language": "en",
+   "authorships": [
+    {
+     "author_position": "first",
+     "author": {
+      "id": "https://openalex.org/A5107419573",
+      "display_name": "Bambang Sulistyo",
+      "orcid": null,
+      "observed_orcids": []
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I127859547",
+       "display_name": "Yogyakarta State University",
+       "ror": "https://ror.org/05fryw881",
+       "country_code": "ID",
+       "type": "education",
+       "lineage": [
+        "https://openalex.org/I127859547"
+       ]
+      }
+     ],
+     "countries": [
+      "ID"
+     ],
+     "is_corresponding": true,
+     "raw_author_name": "Bambang Sulistyo",
+     "raw_affiliation_strings": [
+      "Automotive Engineering Education, Engineering Faculty, Yogyakarta State University"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "Automotive Engineering Education, Engineering Faculty, Yogyakarta State University",
+       "institution_ids": [
+        "https://openalex.org/I127859547"
+       ]
+      }
+     ]
+    },
+    {
+     "author_position": "middle",
+     "author": {
+      "id": "https://openalex.org/A5086365842",
+      "display_name": "Rio Nugroho",
+      "orcid": null,
+      "observed_orcids": []
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I127859547",
+       "display_name": "Yogyakarta State University",
+       "ror": "https://ror.org/05fryw881",
+       "country_code": "ID",
+       "type": "education",
+       "lineage": [
+        "https://openalex.org/I127859547"
+       ]
+      }
+     ],
+     "countries": [
+      "ID"
+     ],
+     "is_corresponding": false,
+     "raw_author_name": "Rio Nugroho",
+     "raw_affiliation_strings": [
+      "Automotive Engineering Education, Engineering Faculty, Yogyakarta State University"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "Automotive Engineering Education, Engineering Faculty, Yogyakarta State University",
+       "institution_ids": [
+        "https://openalex.org/I127859547"
+       ]
+      }
+     ]
+    },
+    {
+     "author_position": "last",
+     "author": {
+      "id": "https://openalex.org/A5047219486",
+      "display_name": "Rino Prihantoro",
+      "orcid": null,
+      "observed_orcids": []
+     },
+     "institutions": [
+      {
+       "id": "https://openalex.org/I127859547",
+       "display_name": "Yogyakarta State University",
+       "ror": "https://ror.org/05fryw881",
+       "country_code": "ID",
+       "type": "education",
+       "lineage": [
+        "https://openalex.org/I127859547"
+       ]
+      }
+     ],
+     "countries": [
+      "ID"
+     ],
+     "is_corresponding": false,
+     "raw_author_name": "Rino Prihantoro",
+     "raw_affiliation_strings": [
+      "Automotive Engineering Education, Engineering Faculty, Yogyakarta State University"
+     ],
+     "raw_orcid": null,
+     "affiliations": [
+      {
+       "raw_affiliation_string": "Automotive Engineering Education, Engineering Faculty, Yogyakarta State University",
+       "institution_ids": [
+        "https://openalex.org/I127859547"
+       ]
+      }
+     ]
+    }
+   ],
+   "primary_location": {
+    "id": "doi:10.1088/1742-6596/1273/1/012083",
+    "doi": "https://doi.org/10.1088/1742-6596/1273/1/012083",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1088/1742-6596/1273/1/012083",
+    "pdf_url": "https://iopscience.iop.org/article/10.1088/1742-6596/1273/1/012083/pdf",
+    "source": {
+     "id": "https://openalex.org/S4210187594",
+     "display_name": "Journal of Physics Conference Series",
+     "issn_l": "1742-6588",
+     "issn": [
+      "1742-6588",
+      "1742-6596"
+     ],
+     "is_oa": true,
+     "is_in_doaj": false,
+     "is_core": true,
+     "listed_in": [
+      "anvur-class-a",
+      "anvur-scientific",
+      "cwts-core",
+      "jufo-1",
+      "norway-1",
+      "poland-40",
+      "vabb-shw"
+     ],
+     "host_organization": "https://openalex.org/P4310320083",
+     "host_organization_name": "IOP Publishing",
+     "host_organization_lineage": [
+      "https://openalex.org/P4310320083",
+      "https://openalex.org/P4310311669"
+     ],
+     "host_organization_lineage_names": [
+      "IOP Publishing",
+      "Institute of Physics"
+     ],
+     "type": "journal"
+    },
+    "license": "cc-by",
+    "license_id": "https://openalex.org/licenses/cc-by",
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Journal of Physics: Conference Series",
+    "raw_type": "journal-article"
+   },
+   "biblio": {
+    "volume": "1273",
+    "issue": "1",
+    "first_page": "012083",
+    "last_page": "012083"
+   },
+   "ids": {
+    "openalex": "https://openalex.org/W2987878056",
+    "doi": "https://doi.org/10.1088/1742-6596/1273/1/012083",
+    "mag": "2987878056"
+   },
+   "keywords": [
+    {
+     "id": "https://openalex.org/keywords/coconut-shell-waste",
+     "display_name": "coconut shell waste",
+     "score": 1.0
+    },
+    {
+     "id": "https://openalex.org/keywords/motorcycle-helmets",
+     "display_name": "motorcycle helmets",
+     "score": 0.7929999828338623
+    },
+    {
+     "id": "https://openalex.org/keywords/waste-utilization",
+     "display_name": "waste utilization",
+     "score": 0.800000011920929
+    },
+    {
+     "id": "https://openalex.org/keywords/shell-thickness",
+     "display_name": "shell thickness",
+     "score": 0.6549999713897705
+    },
+    {
+     "id": "https://openalex.org/keywords/shell-weight",
+     "display_name": "shell weight",
+     "score": 0.9100000262260437
+    },
+    {
+     "id": "https://openalex.org/keywords/hardness",
+     "display_name": "hardness",
+     "score": 0.8330000042915344
+    },
+    {
+     "id": "https://openalex.org/keywords/environmentally-friendly-products",
+     "display_name": "sustainable products",
+     "score": 0.8220000267028809
+    },
+    {
+     "id": "https://openalex.org/keywords/motorcycle-safety",
+     "display_name": "motorcycle safety",
+     "score": 0.3330000042915344
+    }
+   ],
+   "abstract_inverted_index": {
+    "Abstract": [
+     0
+    ],
+    "Coconut": [
+     1
+    ],
+    "tree": [
+     2
+    ],
+    "is": [
+     3,
+     34,
+     67,
+     123,
+     143,
+     147
+    ],
+    "a": [
+     4,
+     113,
+     129,
+     136,
+     156,
+     218,
+     230
+    ],
+    "plant": [
+     5
+    ],
+    "that": [
+     6,
+     142,
+     201
+    ],
+    "can": [
+     7,
+     85,
+     109,
+     205
+    ],
+    "be": [
+     8,
+     63,
+     86,
+     110,
+     133,
+     206
+    ],
+    "easily": [
+     9
+    ],
+    "found": [
+     10,
+     200
+    ],
+    "almost": [
+     11
+    ],
+    "in": [
+     12,
+     70,
+     183,
+     216,
+     251
+    ],
+    "every": [
+     13
+    ],
+    "corner": [
+     14
+    ],
+    "of": [
+     15,
+     23,
+     30,
+     53,
+     73,
+     78,
+     139,
+     171,
+     194,
+     229,
+     240,
+     247,
+     261
+    ],
+    "Indonesian": [
+     16
+    ],
+    "archipelago,": [
+     17
+    ],
+    "therefore": [
+     18
+    ],
+    "there": [
+     19
+    ],
+    "are": [
+     20
+    ],
+    "plentiful": [
+     21
+    ],
+    "number": [
+     22
+    ],
+    "coconut": [
+     24,
+     31,
+     54,
+     79,
+     94,
+     125,
+     172,
+     195,
+     202,
+     222,
+     231,
+     248
+    ],
+    "produced": [
+     25
+    ],
+    "here.": [
+     26
+    ],
+    "Currently,": [
+     27
+    ],
+    "the": [
+     28,
+     58,
+     71,
+     93,
+     98,
+     104,
+     149,
+     153,
+     169,
+     187,
+     191,
+     225,
+     237,
+     241
+    ],
+    "utilization": [
+     29,
+     52
+    ],
+    "shell": [
+     32,
+     55,
+     80,
+     95,
+     126,
+     173,
+     196,
+     203,
+     223,
+     232,
+     249
+    ],
+    "waste": [
+     33,
+     56,
+     96,
+     127,
+     154,
+     174,
+     204
+    ],
+    "still": [
+     35
+    ],
+    "limited": [
+     36
+    ],
+    "to": [
+     37,
+     62,
+     132,
+     151,
+     166,
+     185,
+     190
+    ],
+    "homemade": [
+     38
+    ],
+    "furniture": [
+     39
+    ],
+    "industries": [
+     40
+    ],
+    "and": [
+     41,
+     88,
+     119,
+     146,
+     158,
+     179,
+     210,
+     215,
+     227
+    ],
+    "crafts.": [
+     42
+    ],
+    "It": [
+     43,
+     122
+    ],
+    "has": [
+     44,
+     116,
+     128
+    ],
+    "not": [
+     45
+    ],
+    "been": [
+     46
+    ],
+    "made": [
+     47,
+     134
+    ],
+    "into": [
+     48,
+     112,
+     155,
+     209
+    ],
+    "technology": [
+     49
+    ],
+    "product.": [
+     50,
+     160
+    ],
+    "The": [
+     51,
+     82,
+     243
+    ],
+    "as": [
+     57,
+     97,
+     135,
+     175,
+     212
+    ],
+    "helmet": [
+     59,
+     74,
+     84,
+     108,
+     114,
+     141,
+     181,
+     213,
+     220
+    ],
+    "coating": [
+     60,
+     138,
+     182,
+     214
+    ],
+    "materials": [
+     61
+    ],
+    "creative": [
+     64
+    ],
+    "business": [
+     65
+    ],
+    "product": [
+     66,
+     75
+    ],
+    "an": [
+     68
+    ],
+    "innovation": [
+     69
+    ],
+    "form": [
+     72
+    ],
+    "making": [
+     76,
+     91,
+     217
+    ],
+    "use": [
+     77,
+     92,
+     168
+    ],
+    "waste.": [
+     81,
+     197
+    ],
+    "second-hand": [
+     83
+    ],
+    "redesigned": [
+     87
+    ],
+    "recreated": [
+     89
+    ],
+    "by": [
+     90
+    ],
+    "outer": [
+     99
+    ],
+    "coating.": [
+     100
+    ],
+    "In": [
+     101
+    ],
+    "other": [
+     102
+    ],
+    "words,": [
+     103
+    ],
+    "ordinary": [
+     105
+    ],
+    "or": [
+     106
+    ],
+    "broken": [
+     107
+    ],
+    "transformed": [
+     111
+    ],
+    "which": [
+     115
+    ],
+    "unique,": [
+     117,
+     176
+    ],
+    "aesthetic": [
+     118
+    ],
+    "economical": [
+     120
+    ],
+    "values.": [
+     121
+    ],
+    "because": [
+     124
+    ],
+    "big": [
+     130
+    ],
+    "potential": [
+     131,
+     170
+    ],
+    "strong": [
+     137,
+     219
+    ],
+    "motorcycle": [
+     140
+    ],
+    "more": [
+     144
+    ],
+    "eco-friendly": [
+     145
+    ],
+    "supporting": [
+     148
+    ],
+    "idea": [
+     150
+    ],
+    "utilize": [
+     152
+    ],
+    "valuable": [
+     157,
+     180
+    ],
+    "sophisticated": [
+     159
+    ],
+    "Accordingly,": [
+     161
+    ],
+    "this": [
+     162,
+     252
+    ],
+    "research": [
+     163,
+     199,
+     253
+    ],
+    "was": [
+     164,
+     254
+    ],
+    "conducted": [
+     165
+    ],
+    "make": [
+     167
+    ],
+    "endurable,": [
+     177
+    ],
+    "strong,": [
+     178
+    ],
+    "order": [
+     184
+    ],
+    "answer": [
+     186
+    ],
+    "problem": [
+     188
+    ],
+    "related": [
+     189
+    ],
+    "large": [
+     192
+    ],
+    "amount": [
+     193
+    ],
+    "This": [
+     198
+    ],
+    "successfully": [
+     207
+    ],
+    "turned": [
+     208
+    ],
+    "used": [
+     211
+    ],
+    "from": [
+     221
+    ],
+    "waste,": [
+     224
+    ],
+    "thickness": [
+     226
+    ],
+    "weight": [
+     228
+    ],
+    "may": [
+     233
+    ],
+    "have": [
+     234
+    ],
+    "effect": [
+     235
+    ],
+    "on": [
+     236
+    ],
+    "hardness": [
+     238,
+     246
+    ],
+    "level": [
+     239
+    ],
+    "shell.": [
+     242
+    ],
+    "most": [
+     244
+    ],
+    "effective": [
+     245
+    ],
+    "discovered": [
+     250
+    ],
+    "3.3": [
+     255
+    ],
+    "mm": [
+     256
+    ],
+    "thick": [
+     257
+    ],
+    "with": [
+     258
+    ],
+    "5": [
+     259
+    ],
+    "grams": [
+     260
+    ],
+    "weight.": [
+     262
+    ]
+   },
+   "cited_by_count": 3,
+   "referenced_works": []
+  }
+ ]
+}

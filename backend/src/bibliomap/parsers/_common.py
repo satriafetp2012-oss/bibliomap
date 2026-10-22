@@ -37,6 +37,15 @@ _DOCTYPE_MAP: dict[str, DocumentType] = {
     "systematic review": DocumentType.REVIEW,
     "meta-analysis": DocumentType.REVIEW,
     "comment": DocumentType.LETTER,
+    # BibTeX entry types
+    "inproceedings": DocumentType.CONFERENCE_PAPER,
+    "conference": DocumentType.CONFERENCE_PAPER,
+    "incollection": DocumentType.BOOK_CHAPTER,
+    "inbook": DocumentType.BOOK_CHAPTER,
+    # OpenAlex work types
+    "conference-paper": DocumentType.CONFERENCE_PAPER,
+    "book-chapter": DocumentType.BOOK_CHAPTER,
+    "preprint": DocumentType.PREPRINT,
 }
 
 # When a record carries several PubMed PT values, the most specific wins.
@@ -47,6 +56,7 @@ _DOCTYPE_PRIORITY = [
     DocumentType.CONFERENCE_PAPER,
     DocumentType.BOOK_CHAPTER,
     DocumentType.BOOK,
+    DocumentType.PREPRINT,
     DocumentType.ARTICLE,
 ]
 

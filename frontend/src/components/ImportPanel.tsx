@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { ApiError, previewImport } from "../api";
 import type { ImportPreview } from "../types";
-import { RecordTable } from "./RecordTable";
+import { PreviewResult } from "./PreviewResult";
 
 type State =
   | { status: "idle" }
@@ -37,7 +37,7 @@ export function ImportPanel() {
           {t("import.chooseFile")}
           <input
             type="file"
-            accept=".txt,.csv,.ris,.nbib"
+            accept=".txt,.csv,.ris,.nbib,.bib"
             onChange={(e) => setFile(e.target.files?.[0] ?? null)}
           />
         </label>
@@ -52,39 +52,16 @@ export function ImportPanel() {
           {state.message}
         </p>
       )}
-      {state.status === "done" && <PreviewResult preview={state.preview} />}
-    </section>
-  );
-}
-
-function PreviewResult({ preview }: { preview: ImportPreview }) {
-  const { t } = useTranslation();
-  const { records, warnings, source_format } = preview.result;
-
-  return (
-    <>
-      <p className="summary">
-        {t("import.summary", {
-          count: preview.record_count,
-          filename: preview.filename ?? "file",
-          format: t(`format.${source_format}`),
-        })}
-      </p>
-      {warnings.length > 0 && (
-        <details className="warnings">
-          <summary>{t("import.warnings", { count: warnings.length })}</summary>
-          <ul>
-            {warnings.map((w, i) => (
-              <li key={i}>
-                {w.record_index === null
-                  ? w.message
-                  : t("import.warningRow", { index: w.record_index + 1, message: w.message })}
-              </li>
-            ))}
-          </ul>
-        </details>
+      {state.status === "done" && (
+        <PreviewResult
+          result={state.preview.result}
+          summary={t("import.summary", {
+            count: state.preview.record_count,
+            filename: state.preview.filename ?? "file",
+            format: t(`format.${state.preview.result.source_format}`),
+          })}
+        />
       )}
-      <RecordTable records={records} />
-    </>
+    </section>
   );
 }

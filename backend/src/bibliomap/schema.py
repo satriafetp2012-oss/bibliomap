@@ -18,6 +18,8 @@ class SourceFormat(StrEnum):
     SCOPUS = "scopus"
     RIS = "ris"
     PUBMED = "pubmed"
+    BIBTEX = "bibtex"
+    OPENALEX = "openalex"
 
 
 class DocumentType(StrEnum):
@@ -30,6 +32,7 @@ class DocumentType(StrEnum):
     BOOK_CHAPTER = "book_chapter"
     EDITORIAL = "editorial"
     LETTER = "letter"
+    PREPRINT = "preprint"
     OTHER = "other"
 
 
@@ -46,7 +49,9 @@ class Record(BaseModel):
     """A single bibliographic record in canonical form."""
 
     source_format: SourceFormat
-    source_id: str | None = Field(default=None, description="WoS UT, Scopus EID, PMID, RIS AN.")
+    source_id: str | None = Field(
+        default=None, description="WoS UT, Scopus EID, PMID, RIS AN, OpenAlex ID."
+    )
     title: str
     authors: list[Author] = Field(default_factory=list)
     year: int | None = None

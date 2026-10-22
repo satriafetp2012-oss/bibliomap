@@ -17,8 +17,13 @@ Status: **Fase 1** (fondasi dan impor). Lihat spesifikasi produk untuk roadmap.
   | Scopus | CSV | Format penulis lama (`,`) dan baru (`;`) |
   | RIS | `.ris` | EndNote, Zotero, Mendeley, ekspor RIS Scopus/WoS |
   | PubMed | Format PubMed/MEDLINE (`.nbib`) | Afiliasi dan ORCID per penulis, halaman disingkat diperluas |
+  | WoS, Scopus, Zotero, dll. | BibTeX (`.bib`) | Semantik field per eksportir, aksen LaTeX, `@string` |
+
+- Pencarian dan impor langsung dari [OpenAlex](https://openalex.org) dengan query
+  builder (kata kunci boolean, rentang tahun, jenis dokumen, bahasa, akses terbuka).
 
 - API `POST /api/imports/preview` untuk mengunggah file dan melihat hasil parse.
+- API `POST /api/openalex/count` dan `POST /api/openalex/import`.
 - Antarmuka web berbahasa Indonesia untuk pratinjau impor.
 
 ## Menjalankan secara lokal
@@ -40,6 +45,17 @@ npm run dev
 ```
 
 Buka http://localhost:5173. Vite meneruskan `/api` ke backend di port 8000.
+
+### Konfigurasi OpenAlex
+
+OpenAlex membebankan biaya per permintaan terhadap anggaran harian. Tanpa API key,
+semua permintaan dari satu alamat IP berbagi anggaran gratis yang kecil, jadi
+deployment publik wajib memakai key (gratis di https://openalex.org/settings/api).
+
+| Variabel | Fungsi |
+| --- | --- |
+| `BIBLIOMAP_OPENALEX_API_KEY` | API key server; pengguna tetap bisa memakai key sendiri per permintaan |
+| `BIBLIOMAP_OPENALEX_MAILTO` | Email kontak yang dikirim ke OpenAlex |
 
 ## Tes dan pemeriksaan
 

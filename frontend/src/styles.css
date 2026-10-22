@@ -83,3 +83,75 @@ td {
 .num {
   text-align: right;
 }
+
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--border);
+  margin: 1.5rem 0 1rem;
+}
+
+.tab {
+  background: none;
+  color: inherit;
+  border-radius: 6px 6px 0 0;
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+}
+
+.tab.active {
+  border-bottom-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.query-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.query-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.query-form .wide {
+  grid-column: 1 / -1;
+}
+
+.query-form label.check,
+fieldset label.check {
+  flex-direction: row;
+  align-items: center;
+  display: inline-flex;
+  margin-right: 1rem;
+}
+
+.query-form input[type="text"],
+.query-form input[type="number"],
+.query-form input[type="password"],
+.query-form select {
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+}
+
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.count-box {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.count-box code {
+  word-break: break-all;
+}

@@ -18,6 +18,7 @@ from bibliomap.schema import DocumentType, SourceFormat
         ("scopus_sample.csv", SourceFormat.SCOPUS),
         ("ris_sample.ris", SourceFormat.RIS),
         ("pubmed_sample.nbib", SourceFormat.PUBMED),
+        ("bibtex_sample.bib", SourceFormat.BIBTEX),
     ],
 )
 def test_detects_each_fixture(fixture_bytes, name, expected):

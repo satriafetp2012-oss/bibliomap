@@ -6,6 +6,7 @@ import re
 from collections.abc import Callable
 
 from bibliomap.parsers._common import decode_bytes
+from bibliomap.parsers.bibtex import parse_bibtex
 from bibliomap.parsers.pubmed import parse_pubmed
 from bibliomap.parsers.ris import parse_ris
 from bibliomap.parsers.scopus import parse_scopus
@@ -19,10 +20,12 @@ _PARSERS: dict[SourceFormat, Callable[[str], ParseResult]] = {
     SourceFormat.SCOPUS: parse_scopus,
     SourceFormat.RIS: parse_ris,
     SourceFormat.PUBMED: parse_pubmed,
+    SourceFormat.BIBTEX: parse_bibtex,
 }
 
 _RIS_LINE = re.compile(r"^[A-Z][A-Z0-9]  - ", re.MULTILINE)
 _PUBMED_LINE = re.compile(r"^PMID- ?\d+", re.MULTILINE)
+_BIBTEX_ENTRY = re.compile(r"^[ \t]*@[A-Za-z]+\s*[{(]", re.MULTILINE)
 _WOS_HEADER = re.compile(r"^(FN (Clarivate|Thomson)|PT [JBSP]\s*$)", re.MULTILINE)
 
 
@@ -38,13 +41,15 @@ def detect_format(text: str) -> SourceFormat:
         return SourceFormat.WOS
     if _PUBMED_LINE.search(head):
         return SourceFormat.PUBMED
+    if _BIBTEX_ENTRY.search(head):
+        return SourceFormat.BIBTEX
     if re.match(r"^TY  - ", head, re.MULTILINE) or len(_RIS_LINE.findall(head)) >= 3:
         return SourceFormat.RIS
     if "Title" in first_line and ("EID" in first_line or "Source title" in first_line):
         return SourceFormat.SCOPUS
     raise UnknownFormatError(
         "Format file tidak dikenali. Gunakan ekspor WoS (plain text), Scopus (CSV), "
-        "RIS, atau PubMed (format PubMed/MEDLINE)."
+        "BibTeX, RIS, atau PubMed (format PubMed/MEDLINE)."
     )
 
 

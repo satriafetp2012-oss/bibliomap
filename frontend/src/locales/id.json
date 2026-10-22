@@ -5,7 +5,7 @@
   },
   "import": {
     "heading": "Impor data",
-    "help": "Unggah ekspor Web of Science (plain text), Scopus (CSV), RIS, atau PubMed (format PubMed). Format dideteksi otomatis.",
+    "help": "Unggah ekspor Web of Science (plain text atau BibTeX), Scopus (CSV atau BibTeX), RIS, atau PubMed (format PubMed). Format dideteksi otomatis.",
     "chooseFile": "Pilih file",
     "submit": "Pratinjau",
     "loading": "Memproses file…",
@@ -29,7 +29,9 @@
     "wos": "Web of Science",
     "scopus": "Scopus",
     "ris": "RIS",
-    "pubmed": "PubMed"
+    "pubmed": "PubMed",
+    "bibtex": "BibTeX",
+    "openalex": "OpenAlex"
   },
   "docType": {
     "article": "Artikel",
@@ -39,6 +41,50 @@
     "book_chapter": "Bab buku",
     "editorial": "Editorial",
     "letter": "Surat",
-    "other": "Lainnya"
+    "other": "Lainnya",
+    "preprint": "Pracetak"
+  },
+  "tabs": {
+    "upload": "Unggah file",
+    "openalex": "Cari di OpenAlex"
+  },
+  "openalex": {
+    "heading": "Cari di OpenAlex",
+    "help": "OpenAlex adalah basis data ilmiah terbuka (CC0) dengan lebih dari 250 juta karya. Susun query, hitung hasilnya, lalu impor.",
+    "terms": "Kata kunci",
+    "termsHint": "Mendukung AND, OR, NOT, \"frasa\", dan kurung. Contoh: motorcycle AND (helmet OR \"head injury\")",
+    "scope": "Cari di",
+    "scopeTitleAbstract": "Judul dan abstrak",
+    "scopeTitle": "Judul saja",
+    "scopeFulltext": "Semua teks",
+    "yearFrom": "Tahun dari",
+    "yearTo": "Tahun sampai",
+    "types": "Jenis dokumen",
+    "typeAll": "Semua jenis bila tidak ada yang dipilih",
+    "languages": "Bahasa",
+    "languagesHint": "Kode ISO dipisah koma, mis. en, id",
+    "openAccess": "Hanya akses terbuka",
+    "maxResults": "Batas rekaman",
+    "apiKey": "API key OpenAlex (opsional)",
+    "apiKeyHint": "Gunakan key Anda sendiri bila kuota server habis. Key hanya dipakai untuk permintaan ini dan tidak disimpan.",
+    "count": "Hitung hasil",
+    "counting": "Menghitung…",
+    "countResult": "{{count}} karya cocok dengan query ini.",
+    "estimate": "Akan diimpor {{n}} rekaman (perkiraan biaya OpenAlex ${{cost}}).",
+    "queryUrl": "URL query (untuk dicatat di bagian Metode)",
+    "import": "Impor {{n}} rekaman",
+    "importing": "Mengimpor dari OpenAlex…",
+    "summary": "{{count}} rekaman diimpor dari OpenAlex (total tersedia {{total}}).",
+    "truncated": "Hasil dibatasi {{max}} rekaman. Persempit query atau naikkan batas.",
+    "workType": {
+      "article": "Artikel",
+      "review": "Review",
+      "conference-paper": "Makalah konferensi",
+      "book-chapter": "Bab buku",
+      "book": "Buku",
+      "preprint": "Pracetak",
+      "letter": "Surat",
+      "editorial": "Editorial"
+    }
   }
 }

@@ -8,7 +8,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from bibliomap import __version__
-from bibliomap.api import imports
+from bibliomap.api import imports, openalex
 
 app = FastAPI(title="Bibliomap API", version=__version__)
 
@@ -20,6 +20,7 @@ if _origins:
     )
 
 app.include_router(imports.router)
+app.include_router(openalex.router)
 
 
 @app.get("/api/health")
