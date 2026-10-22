@@ -95,3 +95,110 @@ export interface OpenAlexImport {
   query_url: string;
   result: ParseResult;
 }
+
+// --- workspace ----------------------------------------------------------
+
+export interface FilterSpec {
+  year_from: number | null;
+  year_to: number | null;
+  document_types: DocumentType[];
+  languages: string[];
+  min_cited_by: number | null;
+  require_abstract: boolean;
+}
+
+export interface Workspace {
+  id: string;
+  name: string;
+  created_at: string;
+  version: number;
+  filters: FilterSpec;
+}
+
+export interface ImportInfo {
+  id: number;
+  label: string;
+  source_format: SourceFormat;
+  origin: string | null;
+  record_count: number;
+  warnings: ParseWarning[];
+  created_at: string;
+}
+
+export interface WorkspaceSummary {
+  workspace: Workspace;
+  imports: ImportInfo[];
+  counts: {
+    identified: number;
+    unique: number;
+    duplicates_removed: number;
+    pending_reviews: number;
+    kept: number;
+    excluded: number;
+  };
+}
+
+export interface RecordView {
+  id: number;
+  import_label: string;
+  source_format: SourceFormat;
+  title: string;
+  authors: string[];
+  author_count: number;
+  year: number | null;
+  source_title: string | null;
+  document_type: DocumentType;
+  doi: string | null;
+  volume: string | null;
+  issue: string | null;
+  pages: string | null;
+  abstract: string | null;
+}
+
+export interface PendingPair {
+  a: RecordView;
+  b: RecordView;
+  title_similarity: number;
+  reasons: string[];
+}
+
+export interface PendingPage {
+  total: number;
+  items: PendingPair[];
+}
+
+export type ExclusionReason = "year" | "document_type" | "language" | "citations" | "no_abstract";
+
+export interface SourceRef {
+  record_id: number;
+  import_id: number;
+  source_format: SourceFormat;
+  source_id: string | null;
+}
+
+export interface RecordRow {
+  merged: { id: number; record: BibRecord; sources: SourceRef[] };
+  exclusion_reason: ExclusionReason | null;
+}
+
+export interface RecordPage {
+  total: number;
+  items: RecordRow[];
+}
+
+export interface PrismaFlow {
+  identified: number;
+  identified_by_source: { label: string; count: number }[];
+  duplicates_removed: number;
+  automation_ineligible: number;
+  automation_ineligible_by_reason: Partial<Record<ExclusionReason, number>>;
+  other_removed: number;
+  screened: number;
+  screening_excluded: number | null;
+  sought_for_retrieval: number | null;
+  not_retrieved: number | null;
+  assessed_for_eligibility: number | null;
+  reports_excluded: number | null;
+  included: number | null;
+  pending_duplicate_reviews: number;
+}

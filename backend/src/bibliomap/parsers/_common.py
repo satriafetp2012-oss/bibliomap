@@ -174,3 +174,34 @@ def format_issn(values: list[str]) -> list[str]:
         match = _ISSN_DIGITS.match(value.replace("-", "").strip())
         issns.append(f"{match.group(1)}-{match.group(2).upper()}" if match else value.strip())
     return dedupe([i for i in issns if i])
+
+
+# Language labels seen in exports ("English", "eng", "en") -> ISO 639-1.
+_LANGUAGES = {
+    "en": ("english", "eng"),
+    "id": ("indonesian", "ind", "bahasa indonesia"),
+    "es": ("spanish", "spa"),
+    "pt": ("portuguese", "por"),
+    "fr": ("french", "fre", "fra"),
+    "de": ("german", "ger", "deu"),
+    "it": ("italian", "ita"),
+    "nl": ("dutch", "dut", "nld"),
+    "ru": ("russian", "rus"),
+    "zh": ("chinese", "chi", "zho"),
+    "ja": ("japanese", "jpn"),
+    "ko": ("korean", "kor"),
+    "ar": ("arabic", "ara"),
+    "tr": ("turkish", "tur"),
+    "ms": ("malay", "may", "msa"),
+}
+_LANGUAGE_LOOKUP = {
+    alias: code for code, aliases in _LANGUAGES.items() for alias in (code, *aliases)
+}
+
+
+def normalize_language(value: str | None) -> str | None:
+    """Map a language label to ISO 639-1; unknown labels are lower-cased."""
+    if not value:
+        return None
+    label = value.split(";")[0].strip().lower()
+    return _LANGUAGE_LOOKUP.get(label, label) or None

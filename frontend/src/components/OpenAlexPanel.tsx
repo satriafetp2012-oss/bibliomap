@@ -1,16 +1,16 @@
 import { useState, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 
-import { ApiError, countOpenAlex, importOpenAlex } from "../api";
+import { ApiError, countOpenAlex, workspaceApi } from "../api";
 import {
   WORK_TYPES,
+  type ImportInfo,
   type OpenAlexCount,
-  type OpenAlexImport,
   type OpenAlexQuery,
   type SearchScope,
   type WorkType,
 } from "../types";
-import { PreviewResult } from "./PreviewResult";
+import { WarningList } from "./WarningList";
 
 const PER_PAGE = 200;
 // OpenAlex bills about US$0.001 per list request (one page of up to 200 works).
@@ -20,7 +20,7 @@ type State =
   | { status: "idle" }
   | { status: "counting" | "importing"; count?: OpenAlexCount }
   | { status: "counted"; count: OpenAlexCount }
-  | { status: "imported"; count?: OpenAlexCount; result: OpenAlexImport }
+  | { status: "imported"; count?: OpenAlexCount; result: ImportInfo }
   | { status: "error"; message: string; count?: OpenAlexCount };
 
 function parseYear(value: string): number | null {
@@ -28,7 +28,12 @@ function parseYear(value: string): number | null {
   return Number.isNaN(year) ? null : year;
 }
 
-export function OpenAlexPanel() {
+interface Props {
+  workspaceId: string;
+  onImported: () => void;
+}
+
+export function OpenAlexPanel({ workspaceId, onImported }: Props) {
   const { t } = useTranslation();
   const [terms, setTerms] = useState("");
   const [scope, setScope] = useState<SearchScope>("title_and_abstract");
@@ -89,8 +94,13 @@ export function OpenAlexPanel() {
   }
 
   async function handleImport() {
-    const result = await run("importing", () => importOpenAlex(query, apiKey));
-    if (result) setState({ status: "imported", count, result });
+    const result = await run("importing", () =>
+      workspaceApi.importOpenAlex(workspaceId, query, apiKey),
+    );
+    if (result) {
+      setState({ status: "imported", count, result });
+      onImported();
+    }
   }
 
   return (
@@ -231,16 +241,16 @@ export function OpenAlexPanel() {
       )}
       {state.status === "imported" && (
         <>
-          {state.result.truncated && (
+          <p className="summary">
+            {t("openalex.importDone", {
+              count: state.result.record_count,
+              total: state.count?.count ?? state.result.record_count,
+            })}
+          </p>
+          {state.count && state.count.count > state.result.record_count && (
             <p className="muted">{t("openalex.truncated", { max: maxResults })}</p>
           )}
-          <PreviewResult
-            result={state.result.result}
-            summary={t("openalex.summary", {
-              count: state.result.record_count,
-              total: state.result.total_available,
-            })}
-          />
+          <WarningList warnings={state.result.warnings} />
         </>
       )}
     </section>

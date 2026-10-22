@@ -1,7 +1,7 @@
-"""Import endpoint: upload an export file and get canonical records back.
+"""Stateless import preview: upload an export file, get canonical records back.
 
-Phase 1 is stateless: records are parsed and returned for preview. Persisting
-them into a project arrives with the database layer.
+Persistent imports go through the workspace endpoints, which reuse
+``parse_upload``.
 """
 
 from __future__ import annotations
@@ -26,13 +26,12 @@ class ImportPreview(BaseModel):
     result: ParseResult
 
 
-@router.post("/preview")
-async def preview_import(
-    file: Annotated[UploadFile, File(description="Ekspor WoS, Scopus, RIS, atau PubMed.")],
-    source_format: Annotated[
-        SourceFormat | None, Query(description="Kosongkan untuk deteksi otomatis.")
-    ] = None,
-) -> ImportPreview:
+UploadField = Annotated[UploadFile, File(description="File ekspor bibliografi.")]
+FormatQuery = Annotated[SourceFormat | None, Query(description="Kosongkan untuk deteksi otomatis.")]
+
+
+async def parse_upload(file: UploadFile, source_format: SourceFormat | None) -> ParseResult:
+    """Validate size, then parse off the event loop."""
     # Read one byte past the limit so oversized files are rejected without
     # loading arbitrarily large bodies into memory.
     data = await file.read(MAX_UPLOAD_BYTES + 1)
@@ -46,5 +45,10 @@ async def preview_import(
         result = await run_in_threadpool(parse_bytes, data, source_format)
     except UnknownFormatError as exc:
         raise HTTPException(status.HTTP_422_UNPROCESSABLE_CONTENT, str(exc)) from exc
+    return result
 
+
+@router.post("/preview")
+async def preview_import(file: UploadField, source_format: FormatQuery = None) -> ImportPreview:
+    result = await parse_upload(file, source_format)
     return ImportPreview(filename=file.filename, record_count=len(result.records), result=result)

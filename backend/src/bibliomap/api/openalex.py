@@ -11,7 +11,7 @@ from bibliomap.config import Settings, get_settings
 from bibliomap.openalex.client import OpenAlexBudgetError, OpenAlexClient, OpenAlexError
 from bibliomap.openalex.mapper import work_to_record
 from bibliomap.openalex.query import OpenAlexQuery, public_url
-from bibliomap.schema import ParseResult, ParseWarning, SourceFormat
+from bibliomap.schema import ParseResult, ParseWarning, Record, SourceFormat
 
 router = APIRouter(prefix="/api/openalex", tags=["openalex"])
 
@@ -70,16 +70,17 @@ async def count_works(
     return CountResponse(count=count, query_url=public_url(request.query))
 
 
-@router.post("/import")
-async def import_works(
-    request: OpenAlexRequest, factory: ClientFactory, settings: AppSettings
+async def run_openalex_import(
+    request: OpenAlexRequest, factory: type[OpenAlexClient], settings: Settings
 ) -> OpenAlexImport:
+    """Fetch and map works; shared by the preview and workspace endpoints."""
     try:
         fetched = await _client(request, factory, settings).fetch(request.query)
     except OpenAlexError as exc:
         raise _http_error(exc) from exc
 
-    records, warnings = [], []
+    records: list[Record] = []
+    warnings: list[ParseWarning] = []
     for index, work in enumerate(fetched.works):
         record = work_to_record(work)
         if record is None:
@@ -95,3 +96,10 @@ async def import_works(
         query_url=public_url(request.query),
         result=ParseResult(source_format=SourceFormat.OPENALEX, records=records, warnings=warnings),
     )
+
+
+@router.post("/import")
+async def import_works(
+    request: OpenAlexRequest, factory: ClientFactory, settings: AppSettings
+) -> OpenAlexImport:
+    return await run_openalex_import(request, factory, settings)

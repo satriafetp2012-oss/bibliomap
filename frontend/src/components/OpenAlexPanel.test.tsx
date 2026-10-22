@@ -4,18 +4,6 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { OpenAlexPanel } from "./OpenAlexPanel";
 
-const record = {
-  source_format: "openalex",
-  source_id: "W1",
-  title: "Smart helmet prototype",
-  authors: [{ name: "Ana", full_name: "Ana", orcid: null, affiliations: [] }],
-  year: 2018,
-  source_title: "J Phys Conf Ser",
-  document_type: "conference_paper",
-  doi: null,
-  cited_by: 4,
-};
-
 afterEach(() => vi.restoreAllMocks());
 
 function json(body: unknown, status = 200) {
@@ -31,16 +19,17 @@ describe("OpenAlexPanel", () => {
       )
       .mockResolvedValueOnce(
         json({
-          record_count: 1,
-          total_available: 650,
-          truncated: true,
-          cost_usd: 0.001,
-          query_url: "https://api.openalex.org/works?filter=x",
-          result: { source_format: "openalex", records: [record], warnings: [] },
+          id: 7,
+          label: "OpenAlex",
+          source_format: "openalex",
+          origin: "https://api.openalex.org/works?filter=x",
+          record_count: 500,
+          warnings: [],
+          created_at: "2026-10-22T00:00:00Z",
         }),
       );
     const user = userEvent.setup();
-    render(<OpenAlexPanel />);
+    render(<OpenAlexPanel workspaceId="ws1" onImported={() => {}} />);
 
     await user.type(screen.getByLabelText(/Kata kunci/), "helmet AND indonesia");
     await user.type(screen.getByLabelText("Tahun dari"), "2015");
@@ -75,11 +64,9 @@ describe("OpenAlexPanel", () => {
     await user.click(screen.getByRole("button", { name: "Impor 500 rekaman" }));
 
     expect(
-      await screen.findByText("1 rekaman diimpor dari OpenAlex (total tersedia 650)."),
+      await screen.findByText("500 rekaman OpenAlex ditambahkan ke workspace (total tersedia 650)."),
     ).toBeInTheDocument();
-    expect(screen.getByText("Smart helmet prototype")).toBeInTheDocument();
-    expect(screen.getByRole("cell", { name: "Makalah konferensi" })).toBeInTheDocument();
-    expect(fetchMock.mock.calls[1][0]).toBe("/api/openalex/import");
+    expect(fetchMock.mock.calls[1][0]).toBe("/api/workspaces/ws1/imports/openalex");
   });
 
   it("shows validation and budget errors from the server", async () => {
@@ -87,7 +74,7 @@ describe("OpenAlexPanel", () => {
       json({ detail: "Kuota harian OpenAlex habis." }, 429),
     );
     const user = userEvent.setup();
-    render(<OpenAlexPanel />);
+    render(<OpenAlexPanel workspaceId="ws1" onImported={() => {}} />);
 
     await user.type(screen.getByLabelText(/Kata kunci/), "helmet");
     await user.type(screen.getByLabelText(/API key OpenAlex/), "my-key");

@@ -4,7 +4,7 @@ Platform analisis bibliometrik dan pemetaan ilmu pengetahuan berbasis web:
 statistik bibliometrik ala Biblioshiny dan peta jaringan ala VOSviewer dalam
 satu alur.
 
-Status: **Fase 1** (fondasi dan impor). Lihat spesifikasi produk untuk roadmap.
+Status: **Fase 2** (deduplikasi dan PRISMA). Lihat spesifikasi produk untuk roadmap.
 
 ## Yang sudah ada
 
@@ -24,8 +24,28 @@ Status: **Fase 1** (fondasi dan impor). Lihat spesifikasi produk untuk roadmap.
 - Pencarian dan impor langsung dari [OpenAlex](https://openalex.org) dengan query
   builder (kata kunci boolean, rentang tahun, jenis dokumen, bahasa, akses terbuka).
 
-- API `POST /api/imports/preview` untuk mengunggah file dan melihat hasil parse.
-- API `POST /api/openalex/count` dan `POST /api/openalex/import`.
+- **Workspace** (disimpan di SQLite): gabungkan beberapa impor, tinjau duplikat,
+  terapkan filter, dan hasilkan diagram PRISMA 2020.
+- **Deduplikasi**: DOI sama digabung otomatis; judul mirip dicocokkan dengan
+  fuzzy match (judul, tahun, penulis pertama). Pasangan yang meragukan masuk
+  antrean tinjauan manual, dan keputusan Anda selalu mengalahkan aturan otomatis.
+- **Filter otomatis**: tahun, jenis dokumen, bahasa, jumlah sitasi, wajib abstrak.
+  Rekaman dengan nilai kosong tidak dibuang.
+- **PRISMA 2020**: terisi otomatis dari impor, dedup, dan filter; dapat diunduh
+  sebagai SVG.
+
+### API
+
+| Endpoint | Fungsi |
+| --- | --- |
+| `POST /api/imports/preview` | Pratinjau parse tanpa menyimpan |
+| `POST /api/openalex/count` dan `/import` | Hitung dan ambil hasil OpenAlex |
+| `POST /api/workspaces` | Buat workspace |
+| `POST /api/workspaces/{id}/imports/file` dan `/openalex` | Tambah sumber data |
+| `GET /api/workspaces/{id}/dedup/pending` | Antrean tinjauan duplikat |
+| `POST /api/workspaces/{id}/dedup/decisions` | Simpan keputusan duplikat |
+| `PUT /api/workspaces/{id}/filters` | Terapkan filter |
+| `GET /api/workspaces/{id}/prisma` | Angka diagram PRISMA |
 - Antarmuka web berbahasa Indonesia untuk pratinjau impor.
 
 ## Menjalankan secara lokal
@@ -58,6 +78,7 @@ deployment publik wajib memakai key (gratis di https://openalex.org/settings/api
 | --- | --- |
 | `BIBLIOMAP_OPENALEX_API_KEY` | API key server; pengguna tetap bisa memakai key sendiri per permintaan |
 | `BIBLIOMAP_OPENALEX_MAILTO` | Email kontak yang dikirim ke OpenAlex |
+| `BIBLIOMAP_DB_PATH` | Lokasi basis data SQLite (default `data/bibliomap.sqlite3`) |
 
 ## Tes dan pemeriksaan
 
@@ -73,7 +94,8 @@ backend/
   src/bibliomap/
     schema.py          skema rekaman kanonik
     parsers/           parser per format + deteksi otomatis
-    api/imports.py     endpoint impor
+    workspace/         dedup, merge, filter, PRISMA, penyimpanan SQLite
+    api/               endpoint impor, OpenAlex, workspace
     main.py            aplikasi FastAPI
   tests/               tes + fixture sintetis per format
 frontend/

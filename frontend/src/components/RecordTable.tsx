@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { useTranslation } from "react-i18next";
 
 import type { BibRecord } from "../types";
@@ -10,13 +11,21 @@ function formatAuthors(record: BibRecord, more: string): string {
   return names.length > 3 ? `${names.slice(0, 3).join("; ")} ${more}` : names.join("; ");
 }
 
-export function RecordTable({ records }: { records: BibRecord[] }) {
+interface Props {
+  records: BibRecord[];
+  /** Total rows on the server when only a page was loaded. */
+  total?: number;
+  /** Optional trailing column, one value per record. */
+  extra?: { header: string; values: ReactNode[] };
+}
+
+export function RecordTable({ records, total, extra }: Props) {
   const { t } = useTranslation();
   const shown = records.slice(0, MAX_ROWS);
 
   return (
     <div className="table-wrap">
-      <p className="muted">{t("table.showing", { shown: shown.length, total: records.length })}</p>
+      <p className="muted">{t("table.showing", { shown: shown.length, total: total ?? records.length })}</p>
       <table>
         <thead>
           <tr>
@@ -27,6 +36,7 @@ export function RecordTable({ records }: { records: BibRecord[] }) {
             <th>{t("table.type")}</th>
             <th className="num">{t("table.citedBy")}</th>
             <th>{t("table.doi")}</th>
+            {extra && <th>{extra.header}</th>}
           </tr>
         </thead>
         <tbody>
@@ -47,6 +57,7 @@ export function RecordTable({ records }: { records: BibRecord[] }) {
                   "–"
                 )}
               </td>
+              {extra && <td>{extra.values[i]}</td>}
             </tr>
           ))}
         </tbody>

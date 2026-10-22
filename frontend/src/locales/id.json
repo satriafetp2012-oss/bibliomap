@@ -7,12 +7,20 @@
     "heading": "Impor data",
     "help": "Unggah ekspor Web of Science (plain text, BibTeX, atau RIS), Scopus (CSV, BibTeX, atau RIS), PubMed (format PubMed), Lens.org (CSV), OpenAlex (CSV), atau RIS dari Zotero/Mendeley/EndNote. Format dideteksi otomatis.",
     "chooseFile": "Pilih file",
-    "submit": "Pratinjau",
+    "submit": "Impor",
     "loading": "Memproses file…",
     "errorGeneric": "Gagal memproses file. Coba lagi.",
     "summary": "{{count}} rekaman dari {{filename}} (format {{format}})",
     "warnings": "{{count}} peringatan",
-    "warningRow": "Rekaman ke-{{index}}: {{message}}"
+    "warningRow": "Rekaman ke-{{index}}: {{message}}",
+    "added": "{{count}} rekaman ditambahkan dari {{filename}} (format {{format}}).",
+    "listHeading": "Sumber yang sudah diimpor",
+    "listEmpty": "Belum ada data. Unggah file ekspor atau cari di OpenAlex.",
+    "records": "{{count}} rekaman",
+    "rename": "Ganti nama sumber",
+    "renameHint": "Nama ini dipakai di diagram PRISMA (mis. Embase, Scopus).",
+    "delete": "Hapus",
+    "confirmDelete": "Hapus impor \"{{label}}\" beserta rekamannya?"
   },
   "table": {
     "title": "Judul",
@@ -46,8 +54,10 @@
     "preprint": "Pracetak"
   },
   "tabs": {
-    "upload": "Unggah file",
-    "openalex": "Cari di OpenAlex"
+    "import": "Impor",
+    "dedup": "Duplikat",
+    "data": "Filter & data",
+    "prisma": "PRISMA"
   },
   "openalex": {
     "heading": "Cari di OpenAlex",
@@ -86,6 +96,88 @@
       "preprint": "Pracetak",
       "letter": "Surat",
       "editorial": "Editorial"
+    },
+    "importDone": "{{count}} rekaman OpenAlex ditambahkan ke workspace (total tersedia {{total}})."
+  },
+  "workspace": {
+    "loading": "Menyiapkan workspace…",
+    "notFound": "Workspace tidak ditemukan. Membuat workspace baru.",
+    "summary": "{{identified}} rekaman diimpor · {{unique}} unik · {{duplicates}} duplikat dihapus · {{kept}} lolos filter",
+    "linkHint": "Simpan tautan halaman ini untuk membuka workspace yang sama nanti.",
+    "newWorkspace": "Workspace baru"
+  },
+  "dedup": {
+    "heading": "Tinjau duplikat",
+    "auto": "{{count}} duplikat sudah digabung otomatis (DOI sama, atau judul, tahun, dan penulis pertama identik).",
+    "remaining": "{{count}} pasangan menunggu keputusan Anda.",
+    "done": "Tidak ada pasangan yang perlu ditinjau.",
+    "similarity": "Kemiripan judul {{value}}%",
+    "same": "Duplikat, gabungkan",
+    "different": "Bukan duplikat",
+    "undo": "Batalkan keputusan terakhir",
+    "shortcuts": "Pintasan: D = duplikat, N = bukan duplikat",
+    "reasons": {
+      "doi_equal": "DOI sama",
+      "doi_different": "DOI berbeda",
+      "year_equal": "Tahun sama",
+      "first_author_equal": "Penulis pertama sama",
+      "title_prefix": "Judul satu adalah awal judul lain",
+      "short_title": "Judul pendek"
+    },
+    "fields": {
+      "source": "Sumber impor",
+      "authors": "Penulis",
+      "year": "Tahun",
+      "journal": "Jurnal",
+      "doi": "DOI",
+      "volume": "Vol/No/Hal",
+      "type": "Jenis",
+      "abstract": "Abstrak"
     }
+  },
+  "filters": {
+    "heading": "Filter otomatis",
+    "help": "Rekaman dengan nilai kosong (mis. tanpa tahun) tidak dibuang oleh filter. Rekaman yang tersaring dicatat di PRISMA sebagai \"ditandai tidak layak oleh alat otomatis\".",
+    "yearFrom": "Tahun dari",
+    "yearTo": "Tahun sampai",
+    "types": "Jenis dokumen",
+    "languages": "Bahasa (ISO, pisah koma)",
+    "minCited": "Minimal sitasi",
+    "requireAbstract": "Wajib ada abstrak",
+    "apply": "Terapkan filter",
+    "saved": "Filter diterapkan.",
+    "kept": "Lolos filter ({{count}})",
+    "excluded": "Tersaring ({{count}})",
+    "reason": "Alasan",
+    "reasons": {
+      "year": "Tahun",
+      "document_type": "Jenis dokumen",
+      "language": "Bahasa",
+      "citations": "Sitasi",
+      "no_abstract": "Tanpa abstrak"
+    },
+    "sources": "Sumber"
+  },
+  "prisma": {
+    "heading": "Diagram alir PRISMA 2020",
+    "help": "Terisi otomatis dari impor, deduplikasi, dan filter. Kotak skrining dan kelayakan terisi pada fase skrining.",
+    "pending": "Masih ada {{count}} pasangan duplikat yang belum ditinjau; angka dapat berubah.",
+    "download": "Unduh SVG",
+    "identification": "Identifikasi",
+    "screening": "Skrining",
+    "included": "Termasuk",
+    "identified": "Rekaman teridentifikasi dari basis data (n = {{n}})",
+    "removedBefore": "Rekaman dihapus sebelum skrining:",
+    "duplicates": "Duplikat dihapus (n = {{n}})",
+    "automation": "Ditandai tidak layak oleh alat otomatis (n = {{n}})",
+    "other": "Dihapus karena alasan lain (n = {{n}})",
+    "screened": "Rekaman disaring (n = {{n}})",
+    "excludedScreen": "Rekaman dikecualikan (n = {{n}})",
+    "sought": "Laporan dicari untuk diambil (n = {{n}})",
+    "notRetrieved": "Laporan tidak diperoleh (n = {{n}})",
+    "assessed": "Laporan dinilai kelayakannya (n = {{n}})",
+    "reportsExcluded": "Laporan dikecualikan (n = {{n}})",
+    "studiesIncluded": "Studi termasuk dalam tinjauan (n = {{n}})",
+    "unknown": "…"
   }
 }

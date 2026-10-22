@@ -155,3 +155,116 @@ fieldset {
 .count-box code {
   word-break: break-all;
 }
+
+.subtabs {
+  margin-top: 1.5rem;
+}
+
+button.link,
+button.secondary {
+  background: none;
+  padding: 0.3rem 0.5rem;
+}
+
+button.link {
+  color: var(--accent);
+  text-decoration: underline;
+  padding: 0;
+}
+
+button.secondary {
+  color: inherit;
+  border: 1px solid var(--border);
+}
+
+.import-list {
+  list-style: none;
+  padding: 0;
+}
+
+.import-list li {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.import-list li > span {
+  margin-right: auto;
+}
+
+.pair-table th[scope="row"] {
+  width: 10rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.pair-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 1rem 0;
+}
+
+.pair-table th,
+.pair-table td {
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  vertical-align: top;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+
+.pair-table td.diff {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.prisma-wrap {
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.prisma {
+  width: 100%;
+  max-width: 760px;
+  font-family: inherit;
+}
+
+.prisma-box {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1.25;
+}
+
+.prisma-box.muted-box {
+  stroke-dasharray: 4 4;
+}
+
+.prisma-text {
+  font-size: 11px;
+  fill: currentColor;
+}
+
+.prisma-stage {
+  font-size: 13px;
+  font-weight: 600;
+  fill: currentColor;
+}
+
+.prisma-line path {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1.25;
+}
+
+.prisma-arrow {
+  fill: var(--border);
+}

@@ -1,17 +1,22 @@
 import { useState, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 
-import { ApiError, previewImport } from "../api";
-import type { ImportPreview } from "../types";
-import { PreviewResult } from "./PreviewResult";
+import { ApiError, workspaceApi } from "../api";
+import type { ImportInfo } from "../types";
+import { WarningList } from "./WarningList";
 
 type State =
   | { status: "idle" }
   | { status: "loading" }
   | { status: "error"; message: string }
-  | { status: "done"; preview: ImportPreview };
+  | { status: "done"; info: ImportInfo };
 
-export function ImportPanel() {
+interface Props {
+  workspaceId: string;
+  onImported: () => void;
+}
+
+export function ImportPanel({ workspaceId, onImported }: Props) {
   const { t } = useTranslation();
   const [file, setFile] = useState<File | null>(null);
   const [state, setState] = useState<State>({ status: "idle" });
@@ -21,7 +26,9 @@ export function ImportPanel() {
     if (!file) return;
     setState({ status: "loading" });
     try {
-      setState({ status: "done", preview: await previewImport(file) });
+      const info = await workspaceApi.importFile(workspaceId, file);
+      setState({ status: "done", info });
+      onImported();
     } catch (error) {
       const message = error instanceof ApiError ? error.message : t("import.errorGeneric");
       setState({ status: "error", message });
@@ -53,14 +60,16 @@ export function ImportPanel() {
         </p>
       )}
       {state.status === "done" && (
-        <PreviewResult
-          result={state.preview.result}
-          summary={t("import.summary", {
-            count: state.preview.record_count,
-            filename: state.preview.filename ?? "file",
-            format: t(`format.${state.preview.result.source_format}`),
-          })}
-        />
+        <>
+          <p className="summary">
+            {t("import.added", {
+              count: state.info.record_count,
+              filename: state.info.origin ?? "file",
+              format: t(`format.${state.info.source_format}`),
+            })}
+          </p>
+          <WarningList warnings={state.info.warnings} />
+        </>
       )}
     </section>
   );
